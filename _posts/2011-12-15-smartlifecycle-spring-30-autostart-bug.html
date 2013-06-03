@@ -1,0 +1,20 @@
+---
+layout: post
+title: SmartLifecycle Spring 3.0 Autostart Bug
+tags: 
+---
+<p><h1>The Problem</h1>
+I was working on a poc the other day using Zookeeper, Netflix&#8217;s Curator library and Spring MDPs.  I wanted to start a single mdp in a cluster at a time.  In order to do this I needed a bean to manage the starting and stopping of the DefaultMessageListenerContainer.  In doing this, I founf that there&#8217;s a bug in the DefaultLifecycleProcessor in spring 3.0.  
+
+<h1>The scenario</h1>
+
+Bean A and B are both SmartLifecycle implementations.  Bean A controls Bean B by calling its start() and stop() methods.  The configuration calls for Bean A to autostart but NOT Bean B.  The *bug* is that in this scenario in Spring 3.0 both A and B will be started based on Bean A&#8217;s autoStartup property.
+
+<h1>The Rub</h1>
+i reported this bug but it won&#8217;t be fixed in 3.0.  It is fixed in 3.1 but our company won&#8217;t be on 3.1 for a while.  
+
+<h1>The Workaround</h1>
+
+Ultimately I changed the implementation so that Bean A looks up Bean B by *name*.  This essentially hides the declarative dependency on Bean B and thus the default lifecycle processor doesn&#8217;
+*Therein lies the problem*
+t start bean B.</p>

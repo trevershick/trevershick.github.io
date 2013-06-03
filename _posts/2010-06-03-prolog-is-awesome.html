@@ -1,0 +1,20 @@
+---
+layout: post
+title: Prolog is Awesome!
+tags: 
+---
+<p>So one chapter of the 7 languages in 7 weeks book was Prolog. Yeah, it&#8217;s an older language but it&#8217;s really fun.Â  Since i&#8217;ve been doing imperative style programming for so long it was quite literally mind-bending.Â  It kept me up late playing like I used to with Java way back in the late 90s, in other words it was freakin&#8217; fun.Â  At any rate, I won&#8217;t regurgitate any summaries of Prolog (there are <a target="_blank" href="http://lmgtfy.com/?q=What+is+Prolog">plenty</a>), but i will leave some code examples.</p>
+<p>The example listed below was a totally simple program designed to return the smallest integer from a list (totally basic I know), but what i&#8217;m also including here is the &#8216;unit test and command line version too just for the hell of it.</p>
+<pre><p>#file d2_2.pl</p>
+<p>smallest([L,R],S) :- L&lt;R -&gt; S=L;S=R,!.<br/>smallest([H|T], S) :- smallest(T,ST), smallest([H,ST], S),!.<br/>smallest([S],S).</p>
+</pre>
+<pre><p>#file test_d2_2.pl</p>
+<p>assert(Source,Expected,Expected) :-<br/>Â Â Â Â Â Â Â  write('\nOKÂ Â  - For '), write(Source),<br/>Â Â Â Â Â Â Â  write(' expected '),write(Expected), write(' and'),<br/>Â Â Â Â Â Â Â  write(' received '),write(Expected), !.<br/><br/>assert(Source,Expected,Received) :-<br/>Â Â Â Â Â Â Â  write('\nFAIL - For '), write(Source),<br/>Â Â Â Â Â Â Â  write(' expected '),write(Expected), write(' but'),<br/>Â Â Â Â Â Â Â  write(' received '),write(Received), !.<br/><br/>assert_smallest(List,Expected) :-<br/>Â Â Â Â Â Â Â  smallest(List,Received), assert(List,Expected,Received).<br/><br/>test_smallest :-<br/>Â Â Â Â Â Â Â  write('Begin Tests------------------------------------------------'),<br/>Â Â Â Â Â Â Â  assert_smallest([3,1,2],1),<br/>Â Â Â Â Â Â Â  assert_smallest([-66,32,123,1223,10003,1,2],-66),<br/>Â Â Â Â Â Â Â  assert_smallest([0],0),<br/>Â Â Â Â Â Â Â  assert_smallest([-1,0],-1),<br/>Â Â Â Â Â Â Â  write('\n-----------------------------------------------------------\n').<br/><br/>:- include(d2_2).<br/>:- initialization(test_smallest).</p>
+</pre>
+<pre><p>#file cmd_d2_2.pl</p>
+<p>iargs(R) :-<br/>Â Â Â Â Â Â Â  argument_list(S),<br/>Â Â Â Â Â Â Â  iargs(S,R).<br/><br/>iargs([],[]).<br/>iargs([H|T],R) :-<br/>Â Â Â Â Â Â Â  iargs(T,TR),<br/>Â Â Â Â Â Â Â  number_atom(HASINT,H),<br/>Â Â Â Â Â Â Â  append([HASINT],TR,R).<br/><br/><br/><br/>q :-<br/>Â Â Â Â Â Â Â  iargs(S),<br/>Â Â Â Â Â Â Â  smallest(S,SM),<br/>Â Â Â Â Â Â Â  write('Smallest of '),<br/>Â Â Â Â Â Â Â  write(S),<br/>Â Â Â Â Â Â Â  write(' is '),<br/>Â Â Â Â Â Â Â  write(SM),<br/>Â Â Â Â Â Â Â  write('\n').<br/><br/>:- include(d2_2).<br/>:- initialization(q).</p>
+
+</pre>
+<p>So, yeah, i know that&#8217;s totally simple but for people just starting out it might prove useful.Â </p>
+<p>I think for Prolog to be a tool that I would choose I&#8217;d have to be using it for months first. It&#8217;s kind of the chicken and the egg problem unfortunately.Â  If i had a lot of spare time between work/child/running I would work on building stuff with Prolog but i&#8217;m not sure that will happen.Â  If i do write something however I will post it.</p>
+<p>Oh, BTW, this wasn&#8217;t the only Prolog thing we did.Â  We did the standard fibonacci and factorial problems as well as the standard map coloring problem (couldn&#8217;t write that myself - need more practice.) but i won&#8217;t include the code here.</p>

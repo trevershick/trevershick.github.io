@@ -1,0 +1,38 @@
+---
+layout: post
+title: Case Insensitive Search of Text Field in Cucumber
+tags:
+- cucumber
+- ruby
+- rspec
+- capybara
+---
+<p>The default <em>fill_in</em> method of Capybara is case sensitive. This is apparently due to their use of XPath.  Anyhow, this seems to not be very well aligned with the entire idea of DSLs and letting non programmers write tests. After some searching i found a stack overflow problem that didn&#8217;t fix my issue but anyhow&#8230; I simply used a little ruby and the capybara library to find the field myself with some case insensitive regex and the ruby <em>detect</em> method. Yay!</p>
+
+<p>see <a href="http://stackoverflow.com/questions/4157964/cucumber-find-the-input-with-label-text-x">http://stackoverflow.com/questions/4157964/cucumber-find-the-input-with-label-text-x</a></p>
+
+<h1>my web_steps.rb file</h1>
+
+<pre><code>When= /^i enter "([^"]*)" in the "([^"]*)" field$/i do |value, fieldname|
+  @thefield = all("label").detect { |l| (l.text =~ /#{fieldname}/i).nil? == false }
+  if @thefield.nil? then
+    raise Exception.new("Couldn't find field '#{fieldname}'")
+  end
+  fill_in @thefield[:for], :with=&gt;value
+end
+</code></pre>
+
+<h1>admin.feature</h1>
+
+<pre><code>Scenario: Adding a Provider 
+    Given I am on the "Provider List" page
+    When I click the "New Provider" link
+    Then I should see the "New Provider" form
+
+    When I enter "xyz" in the "Name" field
+        And i enter "/jook/test1" in the "public url" field
+        And i enter "/jook/secured/test1" in the "Secure URL" field         
+        And I click on the "Save" button
+    Then I am on the "Provider List" page
+        And i can see "xyz" in the table
+</code></pre>

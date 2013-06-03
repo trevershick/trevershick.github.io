@@ -1,0 +1,25 @@
+---
+layout: post
+title: Checkboxes and JQuery Mobile with Rails
+tags: 
+---
+<p>I&#8217;ve been playing with JQuery Mobile and Rails and I had a problem with a checkbox not working properly.  The checkbox would render properly but wouldn&#8217;t update my model. My checkbox was rendered within the erb template with the following snippet&#8230;</p>
+
+<p><code><br/>
+&lt;div data-role="fieldcontain"&gt;<br/>
+ 	&lt;fieldset data-role="controlgroup"&gt;<br/>
+		&lt;%= f.label :interviewer %&gt;<br/>
+		&lt;%= f.check_box :interviewer %&gt;<br/>
+    &lt;/fieldset&gt;<br/>
+&lt;/div&gt;<br/></code></p>
+
+<p>It turns out i had the label and checkbox in the incorrect order.</p>
+
+<p><code><br/>
+&lt;div data-role="fieldcontain"&gt;<br/>
+ 	&lt;fieldset data-role="controlgroup"&gt;<br/>
+		&lt;%= f.check_box :interviewer %&gt;<br/>
+		&lt;%= f.label :interviewer %&gt;<br/>
+    &lt;/fieldset&gt;<br/>
+&lt;/div&gt;<br/></code><br/>
+Why, I haven&#8217;t bothered to figure it out, but it&#8217;s working now and as i didn&#8217;t find anything on google about this problem, i&#8217;m posting this entry.</p>

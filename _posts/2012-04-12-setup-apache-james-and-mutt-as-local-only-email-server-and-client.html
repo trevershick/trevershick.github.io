@@ -1,0 +1,126 @@
+---
+layout: post
+title: Setup Apache James and Mutt as Local Only Email Server and Client
+tags: 
+---
+<p>
+I do development and sometimes I have to recreate issues with actual data which means using other people&#8217;s email addresses.  Obviously I don&#8217;t want to send them email while i&#8217;m testing so I use Apache James as a local only email server.
+</p>
+<p>
+Here are the steps i use to set this up.
+</p>
+
+
+
+
+<h2>Download and Run James Server</h2>
+
+<p>From <a href="http://james.apache.org/download.cgi" class="external-link" rel="nofollow"><a href="http://james.apache.org/download.cgi">http://james.apache.org/download.cgi</a></a> or directly from <a href="http://mirror.nyi.net/apache//james/server/apache-james-2.3.2.zip" class="external-link" rel="nofollow"><a href="http://mirror.nyi.net/apache//james/server/apache-james-2.3.2.zip">http://mirror.nyi.net/apache//james/server/apache-james-2.3.2.zip</a></a> and extract to a folder.</p>
+
+<p>As i&#8217;m running a mac, I added the following to run.sh.  If you&#8217;re on a windows machine, this step may not be required.</p>
+
+
+<script src="https://gist.github.com/2366868.js?file=add_to_run.sh"></script><p>Start the server&#8230;</p>
+
+<p>On a mac</p>
+
+
+<p>
+<code>
+bin/run.sh
+</code>
+</p>
+
+
+
+<p>On windows</p>
+<p>
+<code>
+bin/run.bat
+</code>
+</p>
+
+
+
+
+
+<h2><a name="HOWTO-SetupaLocalMailServerwithApacheJames-Createalocalemailaccount"></a>Create a local email account</h2>
+
+<pre>
+    $ telnet localhost 4555
+    Trying ::1...
+    telnet: connect to address ::1: Connection refused
+    Trying 127.0.0.1...
+    Connected to localhost.
+    Escape character is '^]'.
+    JAMES Remote Administration Tool 2.3.2
+    Please enter your login and password
+    Login id:
+    root
+    Password:
+    root
+    adduser me me
+    User me added
+</pre>
+
+
+
+
+
+<h2><a name="HOWTO-SetupaLocalMailServerwithApacheJames-RemovetheRemoteDeliveryMailet"></a>Remove the Remote Delivery Mailet</h2>
+
+<p>Remove ( or comment out ) the Remote Delivery mailet in &lt;james_home&gt;/apps/james/SAR-INF/config.xml .  Open the file and search on &#8216;class=&#8221;RemoteDelivery&#8221;&#8217;, and comment out the whole stanza.</p>
+
+
+
+<h2><a name="HOWTO-SetupaLocalMailServerwithApacheJames-Forwardallemailtothelocalaccount"></a>Forward all email to the local account</h2>
+
+
+<img src="https://raw.github.com/gist/2366868/3cf460e1126ce5c67b2fc0d4166eb4bc6f409e20/key.png"/><b>Important</b>
+<p>
+It&#8217;s very important that you configure the forwarding mailet to be in the same place where the RemoteDelivery mailet was.  If you put it too early in the config.xml you may get errors when it attempts to forward a message.</p>
+
+<p>Insert the following mailet in the place where the RemoteDelivery mailet was previously located in ( &lt;james_home&gt;/apps/james/SAR-INF/config.xml ).</p>
+
+
+<script src="https://gist.github.com/2366868.js?file=Forwarding%20Mailet%20in%20config.xml"></script><h2><a name="HOWTO-SetupaLocalMailServerwithApacheJames-RuntheServer"></a>Run the Server</h2>
+<p>Save your changes in the config.xml file and start the server.</p>
+
+<p>On a mac</p>
+<p>
+<code class="java plain">sudo bin/run.sh</code>
+</p>
+
+
+<p>On windows</p>
+<p>
+<code class="java plain">bin/run.bat</code>
+</p>
+
+
+<h2><a name="HOWTO-SetupaLocalMailServerwithApacheJames-TesttheMailServer"></a>Test the Mail Server</h2>
+
+<p>Send an email to me@localhost and use a POP client to &#8216;get&#8217; the email. You should see it.<br/>
+Send an email to anywhere@anywhere.net and retrieve the message, it should be redirected to your local inbox.</p>
+
+
+
+<hr><h2>Install Mutt</h2>
+
+<p>On a mac I use homebrew ( <a href="http://mxcl.github.com/homebrew/" class="external-link" rel="nofollow"><a href="http://mxcl.github.com/homebrew/">http://mxcl.github.com/homebrew/</a></a> ), and simply run:</p>
+
+
+<p>
+<code class="java plain">brew install mutt</code>
+</p>
+
+
+
+<h2><a name="HOWTO-SetupaLocalMailServerwithApacheJames-ConfigureMutt"></a>Configure Mutt</h2>
+
+<script src="https://gist.github.com/2366868.js?file=.muttrc"></script><h2><a name="HOWTO-SetupaLocalMailServerwithApacheJames-RunMutt"></a>Run Mutt</h2>
+
+<ol><li>send a test email by pressing &#8216;m&#8217; to get started, test me@localhost first</li>
+	<li>after the mail is sent, press &#8216;G&#8217; to get the mail from the pop server, you should have received the email you sent.</li>
+	<li>repeat with an external email address - all email flowing to your local server should be redirected to me@localhost .</li>
+</ol>

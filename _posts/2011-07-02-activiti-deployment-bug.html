@@ -1,0 +1,17 @@
+---
+layout: post
+title: Activiti Deployment Bug
+tags:
+- activiti
+---
+<p>So, while working with Activiti, we noticed that Activiti was redeploying bpmn files EVERY TIME the server restarted even though the files never changed.  Since there are two servers, the number of deployed processes was increasing rapidly (many restarts during development).  Ultimately, this is due to a comparison between an existing deployment in the database and the new deployment. A byte by byte comparison is done with &#8216;<strong>supposedly</strong>&#8217; the latest deployment in the db and the potential process to deploy.</p>
+
+<p>This issue however, is that the map files used have their SQL setup to sort by deployment date ascending and then pull the first one by key.  This returns the OLDEST deployment, not the NEWEST deployment which is what Activiti should be using for comparison.</p>
+
+<p>The result is that if you deploy x.bpmn20.xml and then change it, from that point forward it will ALWAYS redeploy.  This is an issue with not only spring automatic deployment but any deployment where it&#8217;s comparing the newest vs the potential deployable.</p>
+
+<p><a href="http://jira.codehaus.org/browse/ACT-736">See the Issue @ Codehaus&#8217; Jira Site</a></p>
+
+<p>In order to fix this without patching the software and waiting for a release, we extended the DeploymentManager that came with Activiti and overrode the findLatestDeploymentByName. This was very easy to do and has fixed the issue.  The code is below.</p>
+
+<script src="https://gist.github.com/1061594.js"> </script>

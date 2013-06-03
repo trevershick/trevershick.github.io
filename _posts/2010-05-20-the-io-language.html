@@ -1,0 +1,36 @@
+---
+layout: post
+title: The Io Language
+tags:
+- io
+---
+<p>So, as a group some people at work are reading &#8220;7 Languages in 7 Days&#8221;. Â It&#8217;s a good exercise to get some fresh blood into our brains. Â Some of the languages covered are Ruby, Scala, Haskell, Io, Prolog and a couple of others. Â Today we talked about Io. Â Io is a prototype based language and it was really fun to do the exercises. Â From simple fibonacci implementation to altering fundamental constructs of the language like changing the &#8216;/&#8217; operator.</p>
+<p>Overall I don&#8217;t really think i&#8217;ll be using Io in my day to day&#8230;ever. Â However it&#8217;s interesting to work in a language that makes you &#8216;think&#8217; differently; i&#8217;ve been doing Java too long.</p>
+<p>I&#8217;m no Io expert (only used for a day) but I will take the chance of posting some of my source code below.</p>
+<h1>return the &#8216;nth number in the sequence</h1>
+<pre>Object fib := method(num,
+	if (num &lt;= 1, 
+		num,
+		fib(num - 2) + fib(num - 1))
+)
+
+writeln("Result of fib(7) = ", fib(7) )
+</pre>
+<h1>Make Divide by Zero Return 0</h1>
+<pre>writeln(3/0)
+writeln(3/3)
+
+
+writeln("Setting up safe divide")
+Number setSlot("unsafe_divide", Number getSlot("/"))
+Number setSlot("/", 
+	method(denom, 
+		writeln("Safe Dividng by ", denom)
+		if(denom == 0, 0, unsafe_divide(denom))
+	)
+)
+
+writeln(3/0)
+writeln(3/3)
+</pre>
+<p>I have others but I won&#8217;t post them all, I think the above examples are sufficient for you to some of the constructs in the language. If you have any questions, <a href="/ask">ask it</a>.</p>
