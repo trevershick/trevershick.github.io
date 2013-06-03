@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>trevershick.github.io</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/trevershick">View On GitHub</a></li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1><a href="/">trevershick.github.io</a></h1>
+         <!-- <p>Trever Shick Github Page</p> -->
+          <hr>
+        </div>
+        
+        <h2>JavaScript Unit Testing Example</h2>
+<p class="meta">20 Jul 2011</p>
+
+<div id="post">
+<p>Recently I had to write some JavaScript for a project and needed a way to test it.
+My first thought was to have a sample page that uses the JavaScript functions and objects
+I was creating, and in fact I did create this page.  It was a good way for me to determine
+how I wanted my API and it also provided instant feedback. However, it was manual and it was
+cumbersome to express my expected outcomes from the API calls.
+
+I did a little searching and found that there are a number of Unit Testing frameworks for
+JavaScript out there in the wild.  I personally decided upon <a href="http://code.google.com/p/js-test-driver/">JSTestDriver</a> on <a href="http://code.google.com">http://code.google.com</a> .  JSTestDriver&#8217;s API is very similar to JUnit which I am familiar with and also allows me to drive multiple 
+browsers at the same time.
+
+I won&#8217;t go thru all the details of how I got this to work, but I will include a few code snippets.  Here is the basic process.
+
+<ol><li>Create your project</li>
+<li>Download JSTestDriver</li>
+<li>Write your JavaScript</li>
+<li>Write your Unit Test - you can do this first but i find it helpful to get the test framework running by creating a test after i have a rudimentary class.  THEN i start adding tests to the unit test that force me to implement the functionality in my JavaScript.</li>
+<li>Create the jsTestDriver.conf File</li>
+<li>Locate your browser executables on your machine</li>
+<li>Create your run.bat or run.sh file</li>
+<li>Run your tests</li>
+
+
+
+
+<br/><br/><h1>Create your project</h1>
+
+For the sake of this example I use the following project layout-
+
+<pre style="background-color:black;color:white;overflow:scroll;padding:10px;">
+proj
+  /src/main/webapp/jook/eqp
+  /src/test/webapp/jook/eqp - I almost always package tests in the same package as the code itself
+  /lib
+</pre>
+<br/><br/><h1>Download JSTestDriver</h1>
+
+Download JSTestDriver.jar <a href="http://code.google.com/p/js-test-driver/">here</a> and add it to the lib/ folder.
+<br/><br/><h1>Write your JavaScript</h1>
+
+
+<script src="https://gist.github.com/1094834.js?file=equipment-id-range.js"></script><br/><br/><h1>Write your Unit Test</h1>
+
+<script src="https://gist.github.com/1094834.js?file=equipment-id-range-test.js"></script><br/><br/><h1>Create the jsTestDriver.conf File</h1>
+
+<b>&lt;project_root&gt;/jsTestDriver.conf</b>
+
+<pre style="background-color:black;color:white;overflow:scroll;padding:10px;">
+server: http://localhost:9876
+
+load:
+  - src/main/webapp/jook/eqp/*.js
+  - src/test/webapp/jook/eqp/*.js
+
+</pre>
+
+
+
+<br/><br/><h1>Locate your browser executables on your machine</h1>
+
+* C:\Program Files (x86)\Mozilla Firefox\firefox.exe
+* c:\Program Files\Internet Explorer\iexplore.exe
+* c:\users\zzzzzz\AppData\Local\Google\Chrome\Application\chrome.exe 
+
+<br/><br/><h1>Create your run.bat or run.sh file</h1>
+
+This really just is for convenience, but after running it several times I found it easier to run a simple batch script.
+
+<b>run_tests.bat</b>
+<pre style="background-color:black;color:white;overflow:scroll;padding:10px;">
+java -jar lib\JsTestDriver-1.3.2.jar --port 9876 --browser "C:\Program Files (x86)\Mozilla Firefox\firefox.exe,c:\Program Files\Internet Explorer\iexplore.exe,c:\users\zzzzzz\AppData\Local\Google\Chrome\Application\chrome.exe" --tests all --testOutput target\test
+</pre>
+
+<br/><br/><h1>Run your tests</h1>
+
+<b>Example Output</b>
+
+<pre style="background-color:black;color:white;overflow:scroll;padding:10px;">
+C:\Users\sdtxs01\workspaces\junk\railinc-equipment-js&gt;run_tests_oneshot.bat
+
+C:\Users\sdtxs01\workspaces\junk\railinc-equipment-js&gt;java -jar lib\JsTestDriver-1.3.2.jar --port 9876 --browser "C:\Pro
+gram Files (x86)\Mozilla Firefox\firefox.exe,c:\Program Files\Internet Explorer\iexplore.exe,c:\users\sdtxs01\AppData\Lo
+cal\Google\Chrome\Application\chrome.exe" --tests all --testOutput target\test
+Chrome: Runner reset.
+................................Microsoft Internet Explorer: Runner reset.
+...........Firefox: Runner reset.
+...........................
+..........................
+Total 96 tests (Passed: 96; Fails: 0; Errors: 0) (55.00 ms)
+  Microsoft Internet Explorer 8.0 Windows: Run 32 tests (Passed: 32; Fails: 0; Errors 0) (55.00 ms)
+  Chrome 12.0.742.122 Windows: Run 32 tests (Passed: 32; Fails: 0; Errors 0) (41.00 ms)
+  Firefox 5.0 Windows: Run 32 tests (Passed: 32; Fails: 0; Errors 0) (28.00 ms)
+
+C:\Users\sdtxs01\workspaces\junk\railinc-equipment-js&gt;
+</pre>
+
+That&#8217;s really it.  JSTestDriver has plugins for code coverage and has facilities for injecting HTML test fixtures into your tests so that you can write unit tests that manipulate the DOM.
+
+Note - The output files are Junit output compatible so they could be collected by the build process and reported on within Hudson. </ol></p>
+
+</div>
+
+     
+      </section>
+<!--
+      <span class="credits left">Project maintained by <a href="https://github.com/trevershick">trevershick</a></span>
+      <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+-->
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

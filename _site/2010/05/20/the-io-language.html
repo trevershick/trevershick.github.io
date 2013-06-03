@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>trevershick.github.io</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/trevershick">View On GitHub</a></li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1><a href="/">trevershick.github.io</a></h1>
+         <!-- <p>Trever Shick Github Page</p> -->
+          <hr>
+        </div>
+        
+        <h2>The Io Language</h2>
+<p class="meta">20 May 2010</p>
+
+<div id="post">
+<p>So, as a group some people at work are reading &#8220;7 Languages in 7 Days&#8221;. &#8216;It&#8217;s a good exercise to get some fresh blood into our brains. &#8216;Some of the languages covered are Ruby, Scala, Haskell, Io, Prolog and a couple of others. &#8216;Today we talked about Io. &#8216;Io is a prototype based language and it was really fun to do the exercises. &#8216;From simple fibonacci implementation to altering fundamental constructs of the language like changing the &#8216;/&#8217; operator.&lt;/p&gt; <p>Overall I don't really think i'll be using Io in my day to day&#8230;ever. 'However it's interesting to work in a language that makes you &#8216;think' differently; i've been doing Java too long.</p> <p>I'm no Io expert (only used for a day) but I will take the chance of posting some of my source code below.</p> <h1>return the &#8216;nth number in the sequence</h1> <pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'>REXML could not parse this XML/HTML: 
+&lt;pre&gt;Object fib := method(num,
+	if (num &amp;lt;= 1, 
+		num,
+		fib(num - 2) + fib(num - 1))
+)</pre></p>
+
+<p>writeln(&#8220;Result of fib(7) = &#8220;, fib(7) ) &lt;/pre&gt; <h1>Make Divide by Zero Return 0</h1> <pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'>REXML could not parse this XML/HTML: 
+&lt;pre&gt;writeln(3/0)
+writeln(3/3)</pre></p>
+
+<p>writeln(&#8220;Setting up safe divide&#8221;) Number setSlot(&#8220;unsafe_divide&#8221;, Number getSlot(&#8221;/&#8221;)) Number setSlot(&#8221;/&#8221;, method(denom, writeln(&#8220;Safe Dividng by &#8220;, denom) if(denom == 0, 0, unsafe_divide(denom)) ) )</p>
+
+<p>writeln(3/0) writeln(3/3) &lt;/pre&gt; <p>I have others but I won't post them all, I think the above examples are sufficient for you to some of the constructs in the language. If you have any questions, <a href='/ask'>ask it</a>.</p></p>
+</div>
+
+     
+      </section>
+<!--
+      <span class="credits left">Project maintained by <a href="https://github.com/trevershick">trevershick</a></span>
+      <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+-->
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>trevershick.github.io</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/trevershick">View On GitHub</a></li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1><a href="/">trevershick.github.io</a></h1>
+         <!-- <p>Trever Shick Github Page</p> -->
+          <hr>
+        </div>
+        
+        <h2>Code Kata 2 - Karate Chop - Python</h2>
+<p class="meta">31 Dec 2010</p>
+
+<div id="post">
+<p>I&#8217;ve been writing more Java lately and reading about Scala to the deficit of my Python.  So I figured i&#8217;d take a little time this morning to do a <a href="http://codekata.pragprog.com/2007/01/kata_two_karate.html">code kata</a> in Python. I may implement it in Ruby as well but that remains to be seen. I&#8217;m not a huge Ruby fan.</p>
+
+<p>Keep in mind this is probably not my best implementations of these. I could spend some more time making them better, but I think they served their purpose anyhow. It&#8217;s not like i&#8217;d ever use these functions as many people smarter than i have already implemented advanced collections functionality in pretty much every language.</p>
+
+<h2>Recursive Method</h2>
+
+<pre><code>def chop(lookingfor, array):
+    l = len(array)
+    if l == 0:
+        return -1
+    elif l == 1:
+        return 0 if array[0] == lookingfor else -1
+
+    midpoint = l/2
+    if array[midpoint] == lookingfor:
+        return midpoint
+    if array[midpoint] &lt; lookingfor:
+        x = chop(lookingfor, array[midpoint:])
+        return -1 if x == -1 else midpoint + x
+    else:
+        x = chop(lookingfor, array[:midpoint])
+        return -1 if x == -1 else x
+</code></pre>
+
+<h2>Non Recursive Method</h2>
+
+<pre><code>def chop(lookingfor, array):
+    low = 0
+    high = len(array)
+    while low &lt; high:
+        m = (low + high) / 2
+        if array[m] == lookingfor:
+            return m
+        elif m == low:
+            break
+        elif array[m] &gt; lookingfor:
+            high = m 
+        elif array[m] &lt; lookingfor:
+            low = m
+    return -1
+</code></pre>
+
+<h2>Rest of the Python Files</h2>
+
+<pre><code>def main():
+    import doctest
+    doctest.testmod()
+
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+
+<h2>Doctest &#8220;Tests&#8221;</h2>
+
+<pre><code>"""
+&gt;&gt;&gt; chop(3, [])
+-1
+&gt;&gt;&gt; chop(3, [1])
+-1
+&gt;&gt;&gt; chop(1, [1])
+0
+&gt;&gt;&gt; chop(1, [1, 3, 5])
+0
+&gt;&gt;&gt; chop(3, [1, 3, 5])
+1
+&gt;&gt;&gt; chop(5, [1, 3, 5])
+2
+&gt;&gt;&gt; chop(0, [1, 3, 5])
+-1
+&gt;&gt;&gt; chop(2, [1, 3, 5])
+-1
+&gt;&gt;&gt; chop(4, [1, 3, 5])
+-1
+&gt;&gt;&gt; chop(6, [1, 3, 5])
+-1
+&gt;&gt;&gt; chop(1, [1, 3, 5, 7])
+0
+&gt;&gt;&gt; chop(3, [1, 3, 5, 7])
+1
+&gt;&gt;&gt; chop(5, [1, 3, 5, 7])
+2
+&gt;&gt;&gt; chop(7, [1, 3, 5, 7])
+3
+&gt;&gt;&gt; chop(0, [1, 3, 5, 7])
+-1
+&gt;&gt;&gt; chop(2, [1, 3, 5, 7])
+-1
+&gt;&gt;&gt; chop(4, [1, 3, 5, 7])
+-1
+&gt;&gt;&gt; chop(6, [1, 3, 5, 7])
+-1
+&gt;&gt;&gt; chop(8, [1, 3, 5, 7])
+-1
+&gt;&gt;&gt; chop(5, range(1, 10000))
+4
+&gt;&gt;&gt; chop(498, range(1, 1000))
+497
+"""
+</code></pre>
+
+</div>
+
+     
+      </section>
+<!--
+      <span class="credits left">Project maintained by <a href="https://github.com/trevershick">trevershick</a></span>
+      <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+-->
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>trevershick.github.io</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/trevershick">View On GitHub</a></li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1><a href="/">trevershick.github.io</a></h1>
+         <!-- <p>Trever Shick Github Page</p> -->
+          <hr>
+        </div>
+        
+        <h2>Testing LDAP Client Code with an Embedded LDAP Server</h2>
+<p class="meta">27 Jan 2013</p>
+
+<div id="post">
+<p>Up until yesterday, i had not found a good way to test my LDAP client code besides manually testing it, which is simply unacceptable from my standpoint.</p>
+
+<p>But thanks to <a href="http://stackoverflow.com/questions/7269697/embedded-memory-ldap-server-solution/7274215">this stack overflow anwer</a> I was lead to the Unboundid LDAP SDK.  </p>
+
+<p>After playing around writing tests with it, I quickly refactored my test code into an annotation based test utility that allows me to easily start up the server and seed it with information.  I&#8217;ve put the code on <a href="https://github.com/trevershick/ldap-test-utils">Github</a>.</p>
+
+<p><b>Update</b> 2013-01-28 - ldap-test-utils should be in Maven Central in a day or two. I released version 1.0.0.  If you have any feature requests, submit them on github.</p>
+
+</div>
+
+     
+      </section>
+<!--
+      <span class="credits left">Project maintained by <a href="https://github.com/trevershick">trevershick</a></span>
+      <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+-->
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

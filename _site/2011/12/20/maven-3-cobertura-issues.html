@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>trevershick.github.io</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/trevershick">View On GitHub</a></li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1><a href="/">trevershick.github.io</a></h1>
+         <!-- <p>Trever Shick Github Page</p> -->
+          <hr>
+        </div>
+        
+        <h2>Maven 3 Cobertura Issues</h2>
+<p class="meta">20 Dec 2011</p>
+
+<div id="post">
+<a href="http://imgur.com/TBiG8"><img src="http://i.imgur.com/TBiG8.png" alt="" title="Hosted by imgur.com"/></a>
+
+
+<p>
+So, one of our developers was seeing some odd results in his Jenkins cobertura reports.
+
+
+The tests weren&#8217;t changing, but the coverage numbers were fluctuating.
+
+Reviewing the logs, I found a common issue (shown below).
+</p>
+<div style="margin:5px;padding:5px;">
+<script src="https://gist.github.com/1501630.js"> </script></div>
+
+
+
+<h1>Results</h1>
+<p>Instead of typing up everything I tried over the last couple of days, i&#8217;ll just put down basic notes&#160;:</p>
+
+<ul><li>Maven&#160;: v 3.0.3 (and up)</li>
+<li><b>Cobertura Maven Plugin&#160;: 2.4 - fixes the issue</b></li>
+<li>Cobertura Maven Plugin&#160;: 2.3 - doesn&#8217;t work (has issues shown in log above)</li>
+<li>Cobertura Maven Plugin&#160;: 2.51 - doesn&#8217;t work (has classloader MavenReport issues)</li>
+<li>-Dcobertura.use.java.nio=false - Unnecessary (in my case)</li>
+</ul>
+
+</div>
+
+     
+      </section>
+<!--
+      <span class="credits left">Project maintained by <a href="https://github.com/trevershick">trevershick</a></span>
+      <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+-->
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

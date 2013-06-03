@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>trevershick.github.io</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/trevershick">View On GitHub</a></li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1><a href="/">trevershick.github.io</a></h1>
+         <!-- <p>Trever Shick Github Page</p> -->
+          <hr>
+        </div>
+        
+        <h2>POC with a new Stack</h2>
+<p class="meta">18 May 2010</p>
+
+<div id="post">
+<p>So I started working with <a href="http://trevershick.livejournal.com/6571.html">Grails on a POC</a> for pulling together multiple micro-web services into a common service platform offering for all of our web apps.Â  Each of the micro-web services were going to be implemented in Grails, Java, Ruby or whatever is appropriate.Â  In using Grails and trying to deploy multiple grails app into Eclipse&#8217;s WST I basically ran into issues (couldn&#8217;t do it - could only find <a href="http://www.grails.org/STS+Integration">this article</a>) and decided that it was more important to finish the POC and the actual technology was not so important.Â  I&#8217;m just about done with the POC but I thought i&#8217;d note the stack and add some notes.</p>
+<p>So, for a webapp framework i&#8217;m using <a href="http://click.apache.org/">Apache Click</a>. I&#8217;m really loving this model over non component-based web frameworks.Â  I used to do a lot of Swing work, and the Apache Click model &#8216;feels&#8217; comfortable.Â  I&#8217;m <a href="http://click.apache.org/docs/faq.html#spring-integration">using Spring with Click</a> as well.Â  It feels OK and seems to integrate easily and our shop is a Spring shop so I have to ensure the framework would work well with Spring.</p>
+<p>A big departure for me was the move away from a traditional RDBMS to Mongo DB.Â  During the initial coding of the POC I was using all in-memory implementation of my services; this allowed me to code without worrying about any of the persistenceÂ  logic.Â  Once I decided I needed to code the persistence side, I really couldn&#8217;t bring myself to write yet another JDBC DAO and I didn&#8217;t feel like using Hibernate.Â  I thought about Data Nucleus but that requires an extra compilation step I really didn&#8217;t feel like messing with (it didn&#8217;t move the POC forward, it was just something else to learn that I may throw away).Â  With all the NoSQL hulabaloo, I figured i&#8217;d give MongoDB a try. It has a large production base and seems to have good driver support. It&#8217;s also very easy to use.Â  The POC I was working on was perfect for MongoDB, it didn&#8217;t have a high write-rate but did have a high read rate.Â  It is also fine for the eventually consistent aspect of MongoDB.</p>
+<p>I&#8217;ll have to write something up on how I used MongoDB. I used it&#8217;s most rudimentary features, but I was able to replace the in-memory implementation of my services with Mongo DB backed implementations in minutes (literally).Â  The most time consuming aspect of using Mongo DB was the marshalling of objects to&lt;&gt;from Java objects.Â  There appear to be some ORM like tools out there for MongoDB but I chose not to use them because A) I didn&#8217;t want to waste time learning another framework I may throw away, and B) I wanted to learn lower level Mongo DB APIs.</p>
+<p>Anyhow, the POC is proceeding. I&#8217;ll post some screenshots and diagrams once it&#8217;s complete.</p>
+
+</div>
+
+     
+      </section>
+<!--
+      <span class="credits left">Project maintained by <a href="https://github.com/trevershick">trevershick</a></span>
+      <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+-->
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

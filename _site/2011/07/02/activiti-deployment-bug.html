@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>trevershick.github.io</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/trevershick">View On GitHub</a></li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1><a href="/">trevershick.github.io</a></h1>
+         <!-- <p>Trever Shick Github Page</p> -->
+          <hr>
+        </div>
+        
+        <h2>Activiti Deployment Bug</h2>
+<p class="meta">02 Jul 2011</p>
+
+<div id="post">
+<p>So, while working with Activiti, we noticed that Activiti was redeploying bpmn files EVERY TIME the server restarted even though the files never changed.  Since there are two servers, the number of deployed processes was increasing rapidly (many restarts during development).  Ultimately, this is due to a comparison between an existing deployment in the database and the new deployment. A byte by byte comparison is done with &#8216;<strong>supposedly</strong>&#8217; the latest deployment in the db and the potential process to deploy.</p>
+
+<p>This issue however, is that the map files used have their SQL setup to sort by deployment date ascending and then pull the first one by key.  This returns the OLDEST deployment, not the NEWEST deployment which is what Activiti should be using for comparison.</p>
+
+<p>The result is that if you deploy x.bpmn20.xml and then change it, from that point forward it will ALWAYS redeploy.  This is an issue with not only spring automatic deployment but any deployment where it&#8217;s comparing the newest vs the potential deployable.</p>
+
+<p><a href="http://jira.codehaus.org/browse/ACT-736">See the Issue @ Codehaus&#8217; Jira Site</a></p>
+
+<p>In order to fix this without patching the software and waiting for a release, we extended the DeploymentManager that came with Activiti and overrode the findLatestDeploymentByName. This was very easy to do and has fixed the issue.  The code is below.</p>
+
+<script src="https://gist.github.com/1061594.js"> </script>
+
+</div>
+
+     
+      </section>
+<!--
+      <span class="credits left">Project maintained by <a href="https://github.com/trevershick">trevershick</a></span>
+      <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+-->
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

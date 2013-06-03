@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>trevershick.github.io</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/trevershick">View On GitHub</a></li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1><a href="/">trevershick.github.io</a></h1>
+         <!-- <p>Trever Shick Github Page</p> -->
+          <hr>
+        </div>
+        
+        <h2>SmartLifecycle Spring 3.0 Autostart Bug</h2>
+<p class="meta">15 Dec 2011</p>
+
+<div id="post">
+<p><h1>The Problem</h1>
+I was working on a poc the other day using Zookeeper, Netflix&#8217;s Curator library and Spring MDPs.  I wanted to start a single mdp in a cluster at a time.  In order to do this I needed a bean to manage the starting and stopping of the DefaultMessageListenerContainer.  In doing this, I founf that there&#8217;s a bug in the DefaultLifecycleProcessor in spring 3.0.  
+
+<h1>The scenario</h1>
+
+Bean A and B are both SmartLifecycle implementations.  Bean A controls Bean B by calling its start() and stop() methods.  The configuration calls for Bean A to autostart but NOT Bean B.  The *bug* is that in this scenario in Spring 3.0 both A and B will be started based on Bean A&#8217;s autoStartup property.
+
+<h1>The Rub</h1>
+i reported this bug but it won&#8217;t be fixed in 3.0.  It is fixed in 3.1 but our company won&#8217;t be on 3.1 for a while.  
+
+<h1>The Workaround</h1>
+
+Ultimately I changed the implementation so that Bean A looks up Bean B by *name*.  This essentially hides the declarative dependency on Bean B and thus the default lifecycle processor doesn&#8217;
+*Therein lies the problem*
+t start bean B.</p>
+
+</div>
+
+     
+      </section>
+<!--
+      <span class="credits left">Project maintained by <a href="https://github.com/trevershick">trevershick</a></span>
+      <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+-->
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
