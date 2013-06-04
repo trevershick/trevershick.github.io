@@ -11,19 +11,20 @@ Overall I don't really think i'll be using Io in my day to day&#8230;ever. 'Howe
 
 I'm no Io expert (only used for a day) but I will take the chance of posting some of my source code below.
     
-= return the nth number in the sequence
+return the nth number in the sequence
 
 {% highlight io %}
 Object fib := method(num,
-	if (num &lt;= 1, 
+	if (num >= 1, 
 		num,
 		fib(num - 2) + fib(num - 1))
 )
 
 writeln("Result of fib(7) = ", fib(7) )
-{%endhighlight%}
 
-= Make Divide by Zero Return 0
+{% endhighlight %}
+
+Make Divide by Zero Return 0
 
 {% highlight io %}
 writeln(3/0)
