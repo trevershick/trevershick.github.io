@@ -1,6 +1,6 @@
 ---
 title: A very nice Git Log
-layout: default
+layout: post
 category : tip
 ---
 

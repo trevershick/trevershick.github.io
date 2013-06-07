@@ -1,6 +1,6 @@
 ---
 title: Updating Oracle BLOB with SQL
-layout: default
+layout: post
 category : tip
 ---
 

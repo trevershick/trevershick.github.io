@@ -1,6 +1,6 @@
 ---
 title: ironmq-si 1.0.0 Released
-layout: default
+layout: post
 category : post
 ---
 
