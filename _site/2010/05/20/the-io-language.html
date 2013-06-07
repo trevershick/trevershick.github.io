@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
+    <script src="/javascripts/respond.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -37,20 +37,38 @@
 <p class="meta">20 May 2010</p>
 
 <div id="post">
-<p>So, as a group some people at work are reading &#8220;7 Languages in 7 Days&#8221;. &#8216;It&#8217;s a good exercise to get some fresh blood into our brains. &#8216;Some of the languages covered are Ruby, Scala, Haskell, Io, Prolog and a couple of others. &#8216;Today we talked about Io. &#8216;Io is a prototype based language and it was really fun to do the exercises. &#8216;From simple fibonacci implementation to altering fundamental constructs of the language like changing the &#8216;/&#8217; operator.&lt;/p&gt; <p>Overall I don't really think i'll be using Io in my day to day&#8230;ever. 'However it's interesting to work in a language that makes you &#8216;think' differently; i've been doing Java too long.</p> <p>I'm no Io expert (only used for a day) but I will take the chance of posting some of my source code below.</p> <h1>return the &#8216;nth number in the sequence</h1> <pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'>REXML could not parse this XML/HTML: 
-&lt;pre&gt;Object fib := method(num,
-	if (num &amp;lt;= 1, 
-		num,
-		fib(num - 2) + fib(num - 1))
-)</pre></p>
+<p>So, as a group some people at work are reading &#8220;7 Languages in 7 Days&#8221;. &#8216;It&#8217;s a good exercise to get some fresh blood into our brains. &#8216;Some of the languages covered are Ruby, Scala, Haskell, Io, Prolog and a couple of others. &#8216;Today we talked about Io. &#8216;Io is a prototype based language and it was really fun to do the exercises. &#8216;From simple fibonacci implementation to altering fundamental constructs of the language like changing the &#8216;/&#8217; operator.</p>
 
-<p>writeln(&#8220;Result of fib(7) = &#8220;, fib(7) ) &lt;/pre&gt; <h1>Make Divide by Zero Return 0</h1> <pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'>REXML could not parse this XML/HTML: 
-&lt;pre&gt;writeln(3/0)
-writeln(3/3)</pre></p>
+<p>Overall I don&#8217;t really think i&#8217;ll be using Io in my day to day&#8230;ever. &#8216;However it&#8217;s interesting to work in a language that makes you &#8216;think&#8217; differently; i&#8217;ve been doing Java too long.</p>
 
-<p>writeln(&#8220;Setting up safe divide&#8221;) Number setSlot(&#8220;unsafe_divide&#8221;, Number getSlot(&#8221;/&#8221;)) Number setSlot(&#8221;/&#8221;, method(denom, writeln(&#8220;Safe Dividng by &#8220;, denom) if(denom == 0, 0, unsafe_divide(denom)) ) )</p>
+<p>I&#8217;m no Io expert (only used for a day) but I will take the chance of posting some of my source code below.</p>
 
-<p>writeln(3/0) writeln(3/3) &lt;/pre&gt; <p>I have others but I won't post them all, I think the above examples are sufficient for you to some of the constructs in the language. If you have any questions, <a href='/ask'>ask it</a>.</p></p>
+<p>return the nth number in the sequence</p>
+<div class='highlight'><pre><code class='io'><span class='nb'>Object</span> <span class='n'>fib</span> <span class='o'>:=</span> <span class='k'>method</span><span class='o'>(</span><span class='n'>num</span><span class='o'>,</span>
+	<span class='k'>if</span> <span class='o'>(</span><span class='n'>num</span> <span class='o'>&gt;=</span> <span class='mf'>1</span><span class='o'>,</span> 
+		<span class='n'>num</span><span class='o'>,</span>
+		<span class='n'>fib</span><span class='o'>(</span><span class='n'>num</span> <span class='o'>-</span> <span class='mf'>2</span><span class='o'>)</span> <span class='o'>+</span> <span class='n'>fib</span><span class='o'>(</span><span class='n'>num</span> <span class='o'>-</span> <span class='mf'>1</span><span class='o'>))</span>
+<span class='o'>)</span>
+
+<span class='n'>writeln</span><span class='o'>(</span><span class='s'>&quot;Result of fib(7) = &quot;</span><span class='o'>,</span> <span class='n'>fib</span><span class='o'>(</span><span class='mf'>7</span><span class='o'>)</span> <span class='o'>)</span>
+</code></pre></div>
+<p>Make Divide by Zero Return 0</p>
+<div class='highlight'><pre><code class='io'><span class='n'>writeln</span><span class='o'>(</span><span class='mf'>3</span><span class='o'>/</span><span class='mf'>0</span><span class='o'>)</span>
+<span class='n'>writeln</span><span class='o'>(</span><span class='mf'>3</span><span class='o'>/</span><span class='mf'>3</span><span class='o'>)</span>
+
+<span class='n'>writeln</span><span class='o'>(</span><span class='s'>&quot;Setting up safe divide&quot;</span><span class='o'>)</span>
+<span class='n'>Number</span> <span class='n'>setSlot</span><span class='o'>(</span><span class='s'>&quot;unsafe_divide&quot;</span><span class='o'>,</span> <span class='n'>Number</span> <span class='n'>getSlot</span><span class='o'>(</span><span class='s'>&quot;/&quot;</span><span class='o'>))</span>
+<span class='n'>Number</span> <span class='n'>setSlot</span><span class='o'>(</span><span class='s'>&quot;/&quot;</span><span class='o'>,</span> 
+	<span class='k'>method</span><span class='o'>(</span><span class='n'>denom</span><span class='o'>,</span> 
+		<span class='n'>writeln</span><span class='o'>(</span><span class='s'>&quot;Safe Dividng by &quot;</span><span class='o'>,</span> <span class='n'>denom</span><span class='o'>)</span>
+		<span class='k'>if</span><span class='o'>(</span><span class='n'>denom</span> <span class='o'>==</span> <span class='mf'>0</span><span class='o'>,</span> <span class='mf'>0</span><span class='o'>,</span> <span class='n'>unsafe_divide</span><span class='o'>(</span><span class='n'>denom</span><span class='o'>))</span>
+	<span class='o'>)</span>
+<span class='o'>)</span>
+
+<span class='n'>writeln</span><span class='o'>(</span><span class='mf'>3</span><span class='o'>/</span><span class='mf'>0</span><span class='o'>)</span>
+<span class='n'>writeln</span><span class='o'>(</span><span class='mf'>3</span><span class='o'>/</span><span class='mf'>3</span><span class='o'>)</span>
+</code></pre></div>
+<p>I have others but I won&#8217;t post them all, I think the above examples are sufficient for you to some of the constructs in the language.</p>
 </div>
 
      
