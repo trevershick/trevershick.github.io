@@ -3,8 +3,11 @@ layout: default
 title: trevershick.github.io
 ---
         <div class="posts">
-        {% for post in site.posts limit: 5 %}
-          <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+		{% for post in site.posts limit: 10 %}
+		<div class="post">
+			<h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a> <small> {{ post.date | date_to_string }}</small></h1>
+			<p>{{ post.content }}</p>
+		</div>
         {% endfor %}
         </div>
 

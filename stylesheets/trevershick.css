@@ -1,0 +1,18 @@
+div.post {
+	margin-top:50px;
+
+}
+div.post p {
+	margin-left:20px;
+}	
+div.post h1  {
+	font-size:16pt;
+	padding-bottom:5px;
+	border-bottom: 1px solid white;
+}
+div.post h1 small {
+	margin-top:5px;
+	display:block;
+	white-space:nowrap;
+	font-size:10pt;
+}
