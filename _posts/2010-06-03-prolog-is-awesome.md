@@ -1,5 +1,6 @@
 --- 
 layout: post
+
 title: Prolog is Awesome!
 categories: [ languages, prolog ]
 ---

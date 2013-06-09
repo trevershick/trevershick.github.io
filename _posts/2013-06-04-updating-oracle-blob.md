@@ -1,7 +1,7 @@
 ---
 title: Updating Oracle BLOB with SQL
 layout: post
-category : tip
+category : tips
 ---
 
 Use 'utl_raw.cast_to_raw' to convert a string to the blob (see below).

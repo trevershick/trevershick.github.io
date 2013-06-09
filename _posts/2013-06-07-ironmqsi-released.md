@@ -1,7 +1,8 @@
 ---
 title: ironmq-si 1.0.0 Released
 layout: post
-category : post
+category : releases
+release-date: 2013-06-07
 ---
 
 

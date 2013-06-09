@@ -14,7 +14,7 @@ title: Your New Jekyll Site
     <link rel="stylesheet" href="{{site.url}}/stylesheets/styles.css">
     <link rel="stylesheet" href="{{site.url}}/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="{{site.url}}/stylesheets/trevershick.css">	
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="{{site.url}}/javascripts/respond.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,28 +28,25 @@ title: Your New Jekyll Site
   <body>
       <div id="header">
         <nav>
+          <h1><a href="{{site.url}}/">trevershick.github.io</a></h1>
           <li class="fork"><a href="https://github.com/trevershick">View On GitHub</a></li>
         </nav>
       </div><!-- end header -->
 
     <div class="wrapper">
+        <div id="spacer" style="margin-top:70px;"></div>
 
-      <section>
-        <div id="title">
-          <h1><a href="{{site.url}}/">trevershick.github.io</a></h1>
-         <!-- <p>Trever Shick Github Page</p> -->
-          <hr>
-        </div>
-        
-        {{ content }}
-     
-      </section>
-<!--
-      <span class="credits left">Project maintained by <a href="https://github.com/trevershick">trevershick</a></span>
-      <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
--->
-    </div>
+      {{ content }}
+      
+      
+      
+              
+          </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+    <script>
+    $(function(){
+        $("a[target='_blank']").append($("<img/>").attr("src","/images/icon_external.gif"));
+    });
+    </script>
   </body>
 </html>

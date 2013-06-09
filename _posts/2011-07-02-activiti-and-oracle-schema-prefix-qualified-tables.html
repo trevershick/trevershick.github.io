@@ -1,19 +1,20 @@
 ---
 layout: post
 title: Activiti and Oracle Schema Prefix (Qualified Tables)
+
 tags:
 - activiti
 - schema prefix
 ---
-<p>Activiti ( version 5.6 at the time of writing this ) does not support using fully qualified table names for itâs persistence layer (i.e. prefixing tables with a SCHEMA. value)</p>
+<p>Activiti ( version 5.6 at the time of writing this ) does not support using fully qualified table names for it's persistence layer (i.e. prefixing tables with a SCHEMA. value)</p>
 
 <p>Our company has a standard where the application server user name setup in the datasource is different than the owning schema. For example, the activity tables and application tables are in schema X but the application user is X_APP_USER. Activiti ends up creating and using the tables in X_APP_USER but we want to be able to have them created and used in X.</p>
 
-<p>There are a couple of ways to do this that weâve determined.
+<p>There are a couple of ways to do this that we've determined.
 1) setup a login trigger for the Oracle user to call ALTER SESSION SET CURRENT_SCHEMA=X
-2) write a DataSource wrapper that calls ALTER SESSION SET CURRENT_SCHEMA=X upon âgetConnectionâ (this works and is implemented)
+2) write a DataSource wrapper that calls ALTER SESSION SET CURRENT_SCHEMA=X upon 'getConnection' (this works and is implemented)
 3) alter Activiti to support schema prefixes (hence this jira issue).
-4) add synonyms to X_APP_USER (doesnât work if tables are initially created)</p>
+4) add synonyms to X_APP_USER (doesn't work if tables are initially created)</p>
 
 <p>Shown below is the implementation of #2.</p>
 

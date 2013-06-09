@@ -1,18 +1,65 @@
-div.post {
-	margin-top:50px;
-
+#header nav { max-width:inherit;background:transparent;}
+#header nav h1 { display:inline; line-height:50px; }
+#post {
+  max-width:650px;
+  margin:auto;
 }
-div.post p {
-	margin-left:20px;
-}	
-div.post h1  {
+#post div.disqus {
+  margin-top:150px;
+}
+div.post {
+	margin-bottom:50px;
+}
+div.post img {
+  max-width:650px;
+}
+h1  {
 	font-size:16pt;
 	padding-bottom:5px;
-	border-bottom: 1px solid white;
+}
+div.post h1 {
+  border-bottom: 1px solid white;
 }
 div.post h1 small {
 	margin-top:5px;
 	display:block;
 	white-space:nowrap;
 	font-size:10pt;
+}
+
+div.declarations {
+  
+}
+div.declarations p {
+  display:inline-block;
+}
+
+div.wrapper {max-width:1024px;
+  margin:inherit;}
+
+div.footer {
+  float:right;
+  width:650px;
+  max-width:650px;
+}
+div.section {
+}
+div.content {
+  float:right;
+  width:650px;
+  max-width:650px;
+}
+div.tips-sidebar {
+  float:left;
+  width:350px;
+}
+div.declarations {
+  float:left;
+  width:350px;
+}
+#header nav li.fork {
+  float:right;
+}
+a.external img {
+  margin-left:3px;
 }

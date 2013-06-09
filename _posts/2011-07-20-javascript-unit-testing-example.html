@@ -1,6 +1,7 @@
 ---
 layout: post
 title: JavaScript Unit Testing Example
+
 tags:
 - jstestdriver
 - unit test
@@ -13,10 +14,10 @@ how I wanted my API and it also provided instant feedback. However, it was manua
 cumbersome to express my expected outcomes from the API calls.
 
 I did a little searching and found that there are a number of Unit Testing frameworks for
-JavaScript out there in the wild.  I personally decided upon <a href="http://code.google.com/p/js-test-driver/">JSTestDriver</a> on <a href="http://code.google.com">http://code.google.com</a> .  JSTestDriver&#8217;s API is very similar to JUnit which I am familiar with and also allows me to drive multiple 
+JavaScript out there in the wild.  I personally decided upon <a href="http://code.google.com/p/js-test-driver/">JSTestDriver</a> on <a href="http://code.google.com">http://code.google.com</a> .  JSTestDriver's API is very similar to JUnit which I am familiar with and also allows me to drive multiple 
 browsers at the same time.
 
-I won&#8217;t go thru all the details of how I got this to work, but I will include a few code snippets.  Here is the basic process.
+I won't go thru all the details of how I got this to work, but I will include a few code snippets.  Here is the basic process.
 
 <ol><li>Create your project</li>
 <li>Download JSTestDriver</li>
@@ -101,6 +102,6 @@ Total 96 tests (Passed: 96; Fails: 0; Errors: 0) (55.00 ms)
 C:\Users\sdtxs01\workspaces\junk\railinc-equipment-js&gt;
 </pre>
 
-That&#8217;s really it.  JSTestDriver has plugins for code coverage and has facilities for injecting HTML test fixtures into your tests so that you can write unit tests that manipulate the DOM.
+That's really it.  JSTestDriver has plugins for code coverage and has facilities for injecting HTML test fixtures into your tests so that you can write unit tests that manipulate the DOM.
 
 Note - The output files are Junit output compatible so they could be collected by the build process and reported on within Hudson. </ol></p>

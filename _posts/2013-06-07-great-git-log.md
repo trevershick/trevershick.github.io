@@ -1,7 +1,10 @@
 ---
 title: A very nice Git Log
 layout: post
-category : tip
+tags:
+- tip
+- git
+
 ---
 
 

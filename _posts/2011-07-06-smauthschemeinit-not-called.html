@@ -1,15 +1,16 @@
 ---
 layout: post
 title: SmAuthScheme.init() not called?
+
 tags:
 - siteminder
 - custom auth scheme
 ---
-<p>I&#8217;ve created a custom auth scheme and finally got it deployed.  It took a while. I finally got to the point where i created a log() method that logs to /tmp/{classname}.log. This is not a long term solution, but it&#8217;s helping me during the discovery phase.  I instantiated the FileWriter in the init method and then logged to it in the query() method but I was getting errors like&#160;: 
+<p>I've created a custom auth scheme and finally got it deployed.  It took a while. I finally got to the point where i created a log() method that logs to /tmp/{classname}.log. This is not a long term solution, but it's helping me during the discovery phase.  I instantiated the FileWriter in the init method and then logged to it in the query() method but I was getting errors like&#160;: 
 
-[30651/4042537872][Wed Jul 06&#160;2011&#160;07:28:18][SmAuthServer.cpp:233][ERROR] Failed to query authentication scheme &#8216;AlwaysAcceptCredentialsFormAuthScheme&#8217;
+[30651/4042537872][Wed Jul 06&#160;2011&#160;07:28:18][SmAuthServer.cpp:233][ERROR] Failed to query authentication scheme 'AlwaysAcceptCredentialsFormAuthScheme'
 
-Ultimately, I changed the log() method to do lazy initialization of the file writer and BAM! i started getting log messages.  The funny thing is, i NEVER get the init() log message.  I don&#8217;t think it&#8217;s being called.  Their documentation says it will be called once for each instance of the custom authentication scheme but i&#8217;m never seeing it called, so i&#8217;m very confused.
+Ultimately, I changed the log() method to do lazy initialization of the file writer and BAM! i started getting log messages.  The funny thing is, i NEVER get the init() log message.  I don't think it's being called.  Their documentation says it will be called once for each instance of the custom authentication scheme but i'm never seeing it called, so i'm very confused.
 
 <pre><code> 
 public SmAuthStatus init(String parameter, String secret) {
@@ -19,6 +20,6 @@ public SmAuthStatus init(String parameter, String secret) {
 }
 </code></pre>
 
-I&#8217;ll see if I can figure it out.
+I'll see if I can figure it out.
 
-<b>Update 2011-07-08</b> - init() is in fact called.  I noticed in my logs that it is being called now. I do not know what changed as I&#8217;ve had many changes.  I simply was not relying on init() being called so i never noticed when it started.</p>
+<b>Update 2011-07-08</b> - init() is in fact called.  I noticed in my logs that it is being called now. I do not know what changed as I've had many changes.  I simply was not relying on init() being called so i never noticed when it started.</p>

@@ -1,0 +1,8 @@
+<div class="references">
+    <h1>References</h1>
+    <ul>
+{% for r in site.categories.references %}
+    <li><a class="external" target="_blank" href="{{r['link'] }}">{{ r.title }}</a></li>
+{% endfor %}
+    </ul>
+</div>

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Maven 3 Cobertura Issues
+
 tags:
 - cobertura
 - maven
@@ -14,7 +15,7 @@ tags:
 So, one of our developers was seeing some odd results in his Jenkins cobertura reports.
 
 
-The tests weren&#8217;t changing, but the coverage numbers were fluctuating.
+The tests weren't changing, but the coverage numbers were fluctuating.
 
 Reviewing the logs, I found a common issue (shown below).
 </p>
@@ -24,11 +25,11 @@ Reviewing the logs, I found a common issue (shown below).
 
 
 <h1>Results</h1>
-<p>Instead of typing up everything I tried over the last couple of days, i&#8217;ll just put down basic notes&#160;:</p>
+<p>Instead of typing up everything I tried over the last couple of days, i'll just put down basic notes&#160;:</p>
 
 <ul><li>Maven&#160;: v 3.0.3 (and up)</li>
 <li><b>Cobertura Maven Plugin&#160;: 2.4 - fixes the issue</b></li>
-<li>Cobertura Maven Plugin&#160;: 2.3 - doesn&#8217;t work (has issues shown in log above)</li>
-<li>Cobertura Maven Plugin&#160;: 2.51 - doesn&#8217;t work (has classloader MavenReport issues)</li>
+<li>Cobertura Maven Plugin&#160;: 2.3 - doesn't work (has issues shown in log above)</li>
+<li>Cobertura Maven Plugin&#160;: 2.51 - doesn't work (has classloader MavenReport issues)</li>
 <li>-Dcobertura.use.java.nio=false - Unnecessary (in my case)</li>
 </ul>
