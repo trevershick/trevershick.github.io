@@ -31,9 +31,9 @@ layout: default
             <div>
                <script>
                function showCode(preElement) {
-                  var i = $("<code/>").html(preElement.html());
-                  var d = $("<div/>").append(i);
-                  d.dialog({ show: {effect: 'fade', speed: 500},width: 1024, title:$(this).attr("alt")});
+                  var i = $("<pre/>").html(preElement.html());
+                  var d = $("<div class='highlight'/>").append(i);
+                  d.dialog({ show: {effect: 'fade', speed: 500},width: '90%', title:$(this).attr("alt")});
                }
                $(function(){
                    $("pre").each(function() {
