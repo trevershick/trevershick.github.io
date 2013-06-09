@@ -63,3 +63,29 @@ div.declarations {
 a.external img {
   margin-left:3px;
 }
+div.code-preview {
+  text-align:right;
+}
+a {
+  cursor:pointer;
+}
+.ui-dialog-titlebar, 
+.ui-widget-header {
+  background:none;
+  background-color: #fc0;
+}
+
+.ui-widget,
+.ui-dialog {
+  font: 14px/1.5 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #F0E7D5;
+  
+  background: #252525;
+  background-attachment: fixed !important;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2A2A29), color-stop(100%, #1C1C1C));
+  background: -webkit-linear-gradient(#2A2A29, #1C1C1C);
+  background: -moz-linear-gradient(#2A2A29, #1C1C1C);
+  background: -o-linear-gradient(#2A2A29, #1C1C1C);
+  background: -ms-linear-gradient(#2A2A29, #1C1C1C);
+  background: linear-gradient(#2A2A29, #1C1C1C);
+}

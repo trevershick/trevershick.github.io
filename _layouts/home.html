@@ -28,4 +28,27 @@ layout: default
        <span class="credits left">Project maintained by <a href="https://github.com/trevershick">trevershick</a></span>
        <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
  -->
-           <div>
+            <div>
+               <script>
+               function showCode(preElement) {
+                  var i = $("<code/>").html(preElement.html());
+                  var d = $("<div/>").append(i);
+                  d.dialog({ show: {effect: 'fade', speed: 500},width: 1024, title:$(this).attr("alt")});
+               }
+               $(function(){
+                   $("pre").each(function() {
+                       var p = $(this);
+                       $(this).before(
+                           $("<div class='code-preview'><a class='code-preview'>view</a></div>").click(function(){ showCode(p); })
+                       );
+                    });
+                   $("img").each(function(){
+                       $(this).css("cursor","pointer");
+                   });
+                   $("body").delegate("img","click", function() {
+                       var i = $("<img/>").attr("src", $(this).attr("src"));
+                       var d = $("<div/>").append(i);
+                       d.dialog({ show: {effect: 'fade', speed: 500}, width: 'auto',title:$(this).attr("alt")});
+                   });
+               });
+               </script>

@@ -9,7 +9,8 @@ tags:
 
 
 
-![](/images/2013-06-07-gitlog.png "Git Log Screenshot")
+![A Great Git Log](/images/2013-06-07-gitlog.png "Git Log Screenshot")
+
 Originally found [here](https://coderwall.com/p/euwpig)
 {% highlight java %}
 
