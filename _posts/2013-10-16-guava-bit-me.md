@@ -22,7 +22,9 @@ The following code snippet, along with it's console output illustrates the behav
 
 Then using the **transformed** collections, ``xformed1.retainAll(xformed2)`` is called.  From that point ``xformed1`` has just the three elements from ``xformed2`` as expected **BUT**, ``s1`` has also been altered.
 
-<script src="https://gist.github.com/trevershick/7008154.js"></script>
+(code snippets are at the bottom)
+
+
 
 # With Hibernate #
 
@@ -32,3 +34,4 @@ The exact issue I found is that one of our Hibernate domain objects exposed a ch
 The quickest fix was to force the evaluation of the transform completely by wrapping ``transform`` call in ``newArrayList`` or whatever method you like.  This then created my ``String`` collection detached from the underlying collection.
 
 
+<script src="https://gist.github.com/trevershick/7008154.js"></script>
