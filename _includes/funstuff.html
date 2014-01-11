@@ -1,0 +1,8 @@
+<div class="funstuff">
+    <h1>Fun Stuff</h1>
+    <ul>
+{% for r in site.categories.funstuff %}
+    <li><a class="external" target="_blank" href="{{r['link'] }}">{{ r.title }}</a></li>
+{% endfor %}
+    </ul>
+</div>
