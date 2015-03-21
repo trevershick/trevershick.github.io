@@ -1,0 +1,29 @@
+---
+title: A DataScript Driven Chart
+layout: post
+tags:
+- highcharts
+- datascript
+---
+
+<p><a href="https://github.com/tonsky/datascript">Datascript</a> has really interested me as of late.
+I have not done much extensive work with it, but the prospect of its use within a rapid
+prototyping environment seems promising.
+</p>
+
+<p>Effectively, it's a Datomic like client side database implemented in ClojureScript with regular JavaScript bindings.  The JSFiddle below uses datascript as a local datastore and loads it with data. Then using datalog, it builds up the data series chart configuration required by Highcharts.</p>
+
+<p>The interesting thing to me is having a generalized data store.  I'm unconcerned with where i get data and its shape, i simply map it all into datascript and use the query language to pull out exactly what I need.</p>
+
+<p>
+For example, converting bytes to MB and obtaining the min/max/avg values is very easy.
+
+{%highlight clojurescript%}
+[ :find (avg ?dataSize) (max ?dataSize) (min ?dataSize)
+  :where
+  [ ?e "dataSize" ?ds ]
+  [(/ ?ds 1048576) ?dataSize]]
+{%endhighlight%}
+</p>
+
+<iframe width="100%" height="500" src="//jsfiddle.net/trevershick/Luugr8v4/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
