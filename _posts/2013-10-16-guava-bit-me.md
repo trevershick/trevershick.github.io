@@ -10,13 +10,13 @@ So, I'll preface this post by stating that I am a big fan of Guava and I advocat
 **Also, please note -** I'm not stating that this is a defect in Guava, it was simply __unexpected__ behavior, that coupled with Hibernate caused me issues.
 
 
-# Shorter Please... #
+## TL;DR ##
 OK, for the impatient or busy...
 
 Since ``transform`` (on ``Lists``,``Sets``,etc..) returns a wrapper around the underlying ``Collection``, modifications to the **transformed collection** alter the **underlying collection**.
 
 
-# Code Sample Please...#
+## Code Sample Please...##
 
 The following code snippet, along with it's console output illustrates the behavior.  Sets ``s1`` and ``s2`` are created with some simple objects (the Noisy objects don't really do anything).  The two sets are then transformed into two sets ( ``xformed1`` and ``xformed2`` ) that contain just a string value from the objects in  ``s1`` and ``s2``.
 
