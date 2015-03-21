@@ -11,9 +11,11 @@ title: Archive
             </header>
 
 {% for post in site.posts %}
+{% if post.category == null %}
             <section>
 <div class="archive-title"><a href="{{post.url}}">{{ post.title }}</a></div> <span class="date">{{ post.date | date: '%d' }} {{ post.date | date: '%b' }}, {{ post.date | date: '%Y'}}</span>
 </section>
+{% endif %}
 {% endfor %}
 
 

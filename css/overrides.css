@@ -8,6 +8,10 @@ a {
 a.code-preview{
   cursor:pointer;
 }
+.main article h1 a {
+  font-size: 1.2em;
+  text-decoration: none;
+}
 article.archive span.date {
   position:absolute;
   left:65%;

@@ -2,25 +2,29 @@
 layout: post
 title: Checkboxes and JQuery Mobile with Rails
 
-tags: 
+tags:
 ---
 <p>I've been playing with JQuery Mobile and Rails and I had a problem with a checkbox not working properly.  The checkbox would render properly but wouldn't update my model. My checkbox was rendered within the erb template with the following snippet&#8230;</p>
 
+{%highlight erb%}
 <p><code><br/>
-&lt;div data-role="fieldcontain"&gt;<br/>
- 	&lt;fieldset data-role="controlgroup"&gt;<br/>
-		&lt;%= f.label :interviewer %&gt;<br/>
-		&lt;%= f.check_box :interviewer %&gt;<br/>
-    &lt;/fieldset&gt;<br/>
-&lt;/div&gt;<br/></code></p>
+<div data-role="fieldcontain">
+ 	<fieldset data-role="controlgroup">
+		<%= f.label :interviewer %>
+		<%= f.check_box :interviewer %>
+    </fieldset><br/>
+</div><br/></code></p>
+{%endhighlight%}
 
 <p>It turns out i had the label and checkbox in the incorrect order.</p>
 
-<p><code><br/>
-&lt;div data-role="fieldcontain"&gt;<br/>
- 	&lt;fieldset data-role="controlgroup"&gt;<br/>
-		&lt;%= f.check_box :interviewer %&gt;<br/>
-		&lt;%= f.label :interviewer %&gt;<br/>
-    &lt;/fieldset&gt;<br/>
-&lt;/div&gt;<br/></code><br/>
+{%highlight erb%}
+<div data-role="fieldcontain">
+ 	<fieldset data-role="controlgroup">
+		<%= f.check_box :interviewer %>
+		<%= f.label :interviewer %>
+    </fieldset>
+</div>
+{%endhighlight%}
+
 Why, I haven't bothered to figure it out, but it's working now and as i didn't find anything on google about this problem, i'm posting this entry.</p>
