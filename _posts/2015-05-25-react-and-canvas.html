@@ -1,0 +1,17 @@
+---
+title: Rendering Dependency Arrows with React and Canvas
+layout: post
+tags:
+- canvas
+- react
+---
+
+<p>
+A challenge was posed to me... Can we highlight dependencies between items in an HTML grid easily?  I initially thought it was an untenable problem but it turned out to be very easy.
+</p>
+<p>
+The basic strategy was to overlay a canvas over the top of a component we had already built, then utilizing <code>getBoundingClientRect</code> and canvas primitives, draw the arrows.  Below is my fiddle.  It took a few hours, but was well worth it.  I even added some adaptive behavior when the grid expands/contracts to keep the arrows from getting too crowded.  If you shrink or grow the example you'll see some arrows switching which 'port' it points to.
+</p>
+
+
+<iframe scrolling="no" width="100%" height="400" src="//jsfiddle.net/trevershick/cvpc3b4v/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
