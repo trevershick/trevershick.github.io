@@ -1,2 +1,5 @@
 name: Trever Shick
-pygments: true
+highlighter: true
+gems:
+  - jekyll-sitemap
+title: trevershick.github.io

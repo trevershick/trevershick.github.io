@@ -1,6 +1,5 @@
 ---
 layout: default
-title: trevershick.github.io
 ---
 <!doctype html>
 <!-- http://paletton.com/palette.php?uid=72g2k0k2Giy0Wvl3Jls4-op5qqS -->
@@ -10,10 +9,13 @@ title: trevershick.github.io
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
+        <title>{% if page.title %}{{ page.title }}{% else %}{{site.title}}{%endif%}</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>trevershick.github.io</title>
         <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
-        <meta name="description" content="">
+        {% if page.description %}
+        <meta name="description" content="{{ page.description }}">
+        {% endif %}
+        <link rel="author" href="https://github.com/trevershick"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -79,6 +81,3 @@ title: trevershick.github.io
         </script>
     </body>
 </html>
-
-
-
