@@ -2,11 +2,13 @@
 layout: default
 
 ---
-<div id="post">
-<h2>{{ page.title }}</h2>
+<div id="post" itemscope itemtype="http://schema.org/NewsArticle">
+<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}"/>
+<h2 itemprop="headline">{{ page.title }}</h2>
 <p class="meta">{{ page.date | date_to_string }}</p>
-
+<div itemprop="articleBody">
 {{ content }}
+</div>
 
 
 <div class="disqus">
