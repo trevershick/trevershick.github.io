@@ -1,0 +1,55 @@
+---
+layout: default
+title: This is my super excellent good page
+note: this is a test page to see if googlebot behaves how we think it does.
+---
+
+<div id="static-html">
+</div>
+<h2>HTML Loaded 'onLoad'</h2>
+<div id="onload-html">
+</div>
+<h2>JSON Loaded 'onLoad' and transformed</h2>
+<div id="onload-json">
+</div>
+<h2>HTML Loaded upon click</h2>
+<a id="hp-click" href="" onclick="return onHpClick();">click here to load hp</a>
+<div id="onlick-html">
+</div>
+<h2>HTML Loaded and transformed upon click</h2>
+<a id="hp-click" href="" onclick="return onWsClick();">click here to load ws</a>
+<div id="onlick-json">
+</div>
+<script>
+
+function onHpClick() {
+  var url = "https://s3.amazonaws.com/trevershick-public/hufflepuff.html";
+  $("#onlick-html").load(url);
+  return false;
+}
+function onWsClick() {
+  var url = "https://s3.amazonaws.com/trevershick-public/weasly.json";
+  $.getJSON(url, function(data) {
+    $("#onlick-json").append("<p/>").html(data.body);
+  });
+  return false;
+}
+function addEvent(element, eventName, fn) {
+    if (element.addEventListener)
+        element.addEventListener(eventName, fn, false);
+    else if (element.attachEvent)
+        element.attachEvent('on' + eventName, fn);
+}
+addEvent(window, 'load', function(){
+  $("#onload-html").load("https://s3.amazonaws.com/trevershick-public/heffalump.html");
+});
+addEvent(window, 'load', function(){
+  var url = "https://s3.amazonaws.com/trevershick-public/hermione.json";
+  $.getJSON(url, function(json) {
+    $("#onload-json").append("<p/>").html(json.body);
+  });
+});
+
+
+
+</script>
