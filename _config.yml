@@ -1,4 +1,5 @@
 name: Trever Shick
+exclude: [vendor]
 highlighter: true
 gems:
   - jekyll-sitemap
