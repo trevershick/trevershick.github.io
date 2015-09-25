@@ -2,6 +2,5 @@ name: Trever Shick
 highlighter: true
 gems:
   - jekyll-sitemap
-  - jekyll-last-modified-at
 title: trevershick.github.io
 url: http://trevershick.github.io
