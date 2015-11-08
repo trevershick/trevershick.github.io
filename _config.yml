@@ -1,6 +1,6 @@
 name: Trever Shick
 exclude: [vendor]
-highlighter: true
+highlighter: pygments
 gems:
   - jekyll-sitemap
 title: trevershick.github.io
