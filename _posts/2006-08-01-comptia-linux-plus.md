@@ -5,13 +5,9 @@ title: CompTIA Linux+
 categories: [ certification ]
 
 category: 'certification'
-tags:
-- certification
-- comptia
-- linuxplus
 
 noindex: true
-
+authority: comptia
 keywords: "comptia, linuxplus, certification"
 logo: comptia.png
 

@@ -3,6 +3,8 @@ title: ironmq-si 1.0.0 Released
 layout: post
 category : releases
 release-date: 2013-06-07
+search: "yes"
+
 ---
 
 
@@ -15,4 +17,3 @@ release-date: 2013-06-07
 	<version>1.0.0</version>
 </dependency>
 {%endhighlight%}
-

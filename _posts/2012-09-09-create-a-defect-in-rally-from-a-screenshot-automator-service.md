@@ -1,10 +1,12 @@
 ---
 
-layout: post 
-title: Create a Defect in Rally from a Screenshot Automator Service 
-tags: 
- - rally 
- - ruby 
+layout: post
+title: Create a Defect in Rally from a Screenshot Automator Service
+tags:
+ - rally
+ - ruby
+search: "yes"
+
 ---
 We use Rally at work for managing our development efforts. The tool itself is
 OK but something as simple as creating a defect can take too long. Some defects
@@ -24,7 +26,7 @@ this point : the defect title, the file name to attach and the Rally project.
 Here's an example:
 
 	./createdefect.rb 'This is my defect' '~/Desktop/bug01.png' 'Rizzo'
-	
+
 This creates a defect in the project 'Rizzo (new SSO)' with the given
 title and attachment. The project doesn't have to match exactly, a
 downcase.start_with? predicate is used to locate the project.
@@ -57,7 +59,7 @@ So, the entire automator workflow essentially goes like this:
 7. Get Variable ('Title')
 8. Get Variable ('RallyProject')
 9. Get Variable ('ImageFile')
-10. Run Shell Script 
+10. Run Shell Script
 	/Users/trevershick/bin/createdefect.rb &#8220;$1&#8221; &#8220;$3&#8221; &#8220;$2&#8221; | grep &#8220;defect created&#8221;
 11. Run AppleScript to display the created defect number
 

@@ -3,6 +3,8 @@ title: Use jQuery to Popup Images in Dialog
 tags:
  - tips
 layout: post
+search: "yes"
+
 ---
 
 Soon after recreating my blog using Jekyll and Github pages, i realized that my images on the main page were too large for the view.  Instead of fixing the images (as i assume i may include even larger images in the future), i decided to put in a simple hack that the Confluence Wiki inspired.  
@@ -21,7 +23,7 @@ Soon after recreating my blog using Jekyll and Github pages, i realized that my 
     to {
             box-shadow: none;
             -webkit-box-shadow: none;
-            -moz-box-shadow: none; 
+            -moz-box-shadow: none;
             }
 }
 @-webkit-keyframes xxx {
@@ -36,10 +38,10 @@ Soon after recreating my blog using Jekyll and Github pages, i realized that my 
   to {
           box-shadow: none;
           -webkit-box-shadow: none;
-          -moz-box-shadow: none; 
+          -moz-box-shadow: none;
           }
 }
- 
+
 .pulsate-on-hover {
     -moz-animation-duration: 3s;
     -webkit-animation-duration: 3s;
@@ -51,7 +53,7 @@ Soon after recreating my blog using Jekyll and Github pages, i realized that my 
     animation-iteration-count: infinite;
     animation-duration: 3s;
 }
- 
+
 .xpulsate-on-hover:hover {
     box-shadow: 0px 0px 20px #9DD5F1;
     -webkit-box-shadow: 0px 0px 20px #9DD5F1;
@@ -109,4 +111,3 @@ I have no images in my theme, so this works well.  This may cause issues for you
 {% highlight javascript %}
 $("body").delegate("img.popup","click", function() { ... });
 {% endhighlight %}
-

@@ -1,8 +1,12 @@
---- 
+---
 layout: post
-
+search: "yes"
 title: Prolog is Awesome!
-categories: [ languages, prolog ]
+categories: [ prolog ]
+tags:
+- prolog
+- languages
+
 ---
 
 So one chapter of the 7 languages in 7 weeks book was Prolog. Yeah, it's an

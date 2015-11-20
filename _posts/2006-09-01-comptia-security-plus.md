@@ -5,13 +5,9 @@ title: CompTIA Security+
 categories: [ certification ]
 
 category: 'certification'
-tags:
-- certification
-- comptia
-- securityplus
 
 noindex: true
-
+authority: comptia
 keywords: "comptia, securityplus, certification"
 logo: comptia.png
 

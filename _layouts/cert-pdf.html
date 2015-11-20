@@ -1,14 +1,19 @@
----
-layout: default
+<!DOCTYPE html>
+<html lang="en-us">
+    {% include head.html %}
+    <body>
+        {% include svg-icons.html %}
+        {% include header-post.html %}
+        <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
----
-<div id="cert-pdf">
+            <article role="article" id="scroll" class="post-content" itemprop="articleBody">
+                {{ content }}
+            </article>
 
-</div>
-<a href="/certs">&lt;&lt; back to certs</a>
-
-<script>
-window.onload = function() {
-    var success = new PDFObject({ url: "/pdfs/{{page.pdf}}.pdf" }).embed("udemy-pdf");
-};
-</script>
+            {% include share.html %}
+            {% include author.html %}
+            {% include comments.html %}
+            {% include footer.html %}
+        </section>
+    </body>
+</html>

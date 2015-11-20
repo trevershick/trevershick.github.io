@@ -1,14 +1,14 @@
 ---
-layout: default
-
+layout: minimal
 ---
-<div id="udemy-pdf">
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+  </header>
+
+  <article class="post-content">
+    {{ content }}
+  </article>
 
 </div>
-<a href="/ced">&lt;&lt; back to continuing education</a>
-
-<script>
-window.onload = function() {
-    var success = new PDFObject({ url: "/pdfs/{{page.pdf}}.pdf" }).embed("udemy-pdf");
-};
-</script>

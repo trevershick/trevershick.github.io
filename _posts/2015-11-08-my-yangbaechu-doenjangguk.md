@@ -1,5 +1,6 @@
 ---
 layout: post
+search: "yes"
 
 title: My version of yangbaechu-doenjangguk (Korean Green Cabbage Soybean Paste Soup)
 categories: [ recipe, korean ]

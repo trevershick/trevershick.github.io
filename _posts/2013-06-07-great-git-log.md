@@ -4,6 +4,7 @@ layout: post
 tags:
 - tip
 - git
+search: "yes"
 
 ---
 
@@ -17,4 +18,3 @@ Originally found [here](https://coderwall.com/p/euwpig)
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
 {% endhighlight %}
-

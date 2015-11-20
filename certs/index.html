@@ -1,25 +1,26 @@
 ---
-layout: default
-title: Certifications
+layout: minimal
+title: "Certifications"
+permalink: /certs/index.html
+image: '/assets/img/series.png'
+description: "Some are old, some are new..."
 ---
-<div class="certs">
-<article>
-	<header>
-		<h1>Certifications</h1>
-	</header>
+
+<main id="scroll" class="certs" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+	{% for post in site.posts %}
+	{% if post.category == 'certification' %}
 
 
-{% for post in site.posts %}
-{% if post.category == 'certification' %}
-	<section>
-		<div class="ced-title">{{ post.title }}</div>
-		{% if post.logo %}
-		<img class="certauthority" src="/images/{{post.logo}}" />
-		{% endif %}
-		<span class="date">{{ post.date | date: '%d' }} {{ post.date | date: '%b' }}, {{ post.date | date: '%Y'}}</span>
-	</section>
-{% endif %}
-{% endfor %}
+    <ul class="post-list">
+            <li><img src="/images/{{post.logo}}" class="authority" />
+				<span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time></span>
+				<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+    </ul>
 
-</article>
-</div>
+
+
+
+
+    {% endif %}
+    {% endfor %}
+</main>

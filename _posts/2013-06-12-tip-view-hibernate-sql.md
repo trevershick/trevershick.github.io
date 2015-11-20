@@ -3,6 +3,8 @@ title: Show Hibernate SQL via Log4j
 tags:
  - tips
 layout: post
+search: "yes"
+
 ---
 
 Don't use showSql=true in Hibernate.  This is NOT the appropriate way to do this.

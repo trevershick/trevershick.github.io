@@ -2,6 +2,8 @@
 title: Generate GRANT statements from Oracle DB
 layout: post
 category: tips
+
+search: "yes"
 ---
 
 Generate 'grant' statements like the following directly from the oracle database itself. This can be usedful for migrations.

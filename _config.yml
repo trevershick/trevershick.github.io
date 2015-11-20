@@ -1,7 +1,47 @@
-name: Trever Shick
-exclude: [vendor]
+# Site settings
+description: Trever Shick's Blog
+baseurl: "" # the subpath of your site, e.g. /blog/
+#url: "http://localhost:3000" # the base hostname & protocol for your site
+
+# User settings
+username: Trever Shick
+user_title: Underachieving Overachiever
+user_description: Developer at Overstock.com
+email: trever@shick.io
+twitter_username: trevermshick
+github_username:  trevershick
+gplus_username:  trevershick
+disqus_username: trever_shick
+linkedin_username: trevershick
+stackoverflow_url: users/204786/trever-shick
+# Build settings
+markdown: kramdown
 highlighter: pygments
-gems:
-  - jekyll-sitemap
-title: trevershick.github.io
-url: http://trevershick.github.io
+permalink: /:categories/:title/
+
+
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
+
+# Links to include in menu navigation
+# For external links add external: true
+links:
+  - title: Home
+    url: /
+  - title: Learning
+    url: /ced
+  - title: Certifications
+    url: /certs
+  - title: About Me
+    url: /about
+  - title: Tags
+    url: /tags
+  - title: Categories
+    url: /series
+
+# exclude my node related stuff
+exclude: ['package.json', 'src', 'node_modules']

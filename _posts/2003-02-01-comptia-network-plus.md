@@ -5,13 +5,9 @@ title: CompTIA Network+
 categories: [ certification ]
 
 category: 'certification'
-tags:
-- certification
-- comptia
-- networkplus
 
 noindex: true
-
+authority: comptia
 keywords: "comptia, networkplus, certification"
 logo: comptia.png
 

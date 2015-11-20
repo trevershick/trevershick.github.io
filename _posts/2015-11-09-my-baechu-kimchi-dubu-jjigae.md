@@ -1,6 +1,7 @@
 ---
 layout: post
 
+search: "yes"
 title: My version of baechu kimchi dubu jjigae (Cabbage Kimchi and Tofu Stew)
 categories: [ recipe, korean ]
 tags:

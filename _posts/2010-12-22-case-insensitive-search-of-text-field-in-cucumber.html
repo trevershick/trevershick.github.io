@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Case Insensitive Search of Text Field in Cucumber
-
+search: "yes"
 tags:
 - cucumber
 - ruby
@@ -25,14 +25,14 @@ end
 
 <h1>admin.feature</h1>
 
-<pre><code>Scenario: Adding a Provider 
+<pre><code>Scenario: Adding a Provider
     Given I am on the "Provider List" page
     When I click the "New Provider" link
     Then I should see the "New Provider" form
 
     When I enter "xyz" in the "Name" field
         And i enter "/jook/test1" in the "public url" field
-        And i enter "/jook/secured/test1" in the "Secure URL" field         
+        And i enter "/jook/secured/test1" in the "Secure URL" field
         And I click on the "Save" button
     Then I am on the "Provider List" page
         And i can see "xyz" in the table

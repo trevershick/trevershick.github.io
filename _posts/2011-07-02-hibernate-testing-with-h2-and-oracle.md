@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hibernate testing with H2 and Oracle
-
+search: "yes"
 tags:
 - m2eclipse
 - unit testing

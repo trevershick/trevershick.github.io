@@ -3,6 +3,8 @@ title: Guava Bit Me (with Hibernate)
 layout: post
 tags:
 
+search: "yes"
+
 ---
 
 So, I'll preface this post by stating that I am a big fan of Guava and I advocate it's use.  That being said, Guava and Hibernate ( and Legacy Code ) took a bit bite out of my butt yesterday.  Fortunately I found the issue in preproduction testing prior and was able to fix it very easily, but it's a sneaky little issue that could really bite someone and they may or may not catch it.

@@ -1,0 +1,19 @@
+---
+---
+[
+  {% for post in site.posts %}
+  {% if post.search == "yes" %}
+    {
+      "title"    : "{{ post.title | escape }}",
+      "category" : "{{ post.categories }}",
+      "tags"     : "{{ post.tags | array_to_sentence_string }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      "date"     : "{{ post.date | date_to_string}}"
+    },
+  {% endif %}
+  {% endfor %}
+  {
+    "title"    : "Certifications",
+    "url"      : "/certs"
+  }
+]
