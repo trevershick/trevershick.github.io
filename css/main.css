@@ -180,7 +180,6 @@ nav a:hover {
 
     nav a {
         float: left;
-        width: 27%;
         margin: 0 1.7%;
         padding: 25px 2%;
         margin-bottom: 0;
@@ -308,6 +307,13 @@ nav a:hover {
     *zoom: 1;
 }
 
+#udemy-pdf {
+    display:block;
+    width:800px;
+    height: 597px;
+    margin:auto;
+}
+
 /* ==========================================================================
    Print styles
    ========================================================================== */
@@ -370,4 +376,33 @@ nav a:hover {
     h3 {
         page-break-after: avoid;
     }
+
+}
+.ced section {
+    margin-top:25px;
+}
+.ced img.provider {
+    max-width: 150px;
+    max-height:30px;
+}
+.ced-title {
+    font-weight:bold;
+}
+.certs img.certauthority {
+    max-width: 150px;
+    max-height:30px;
+}
+
+.certs div.pdf {
+    display:block;
+    width:400px;
+    height: 300px;
+}
+
+.certs article {
+    width:100%;
+}
+
+.certs section {
+    margin-top:25px;
 }

@@ -1,0 +1,29 @@
+---
+layout: default
+title: Continuing Education
+---
+<div class="ced">
+<article>
+    <header>
+        <h1>Continuing Education</h1>
+    </header>
+
+{% for post in site.posts %}
+{% if post.category == 'ced' %}
+<section>
+	{% if post.link %}
+	<div class="ced-title"><a href="{{post.link}}">{{ post.title }}</a> <a href="{{post.url}}"><img width="16" src="/images/cert-blank.png" /></a></div>
+	{% else %}
+	<div class="ced-title">{{ post.title }} <a href="{{post.url}}">[ cert ]</a></div>
+	{% endif %}
+	{% if post.provider.logo %}
+	<img class="provider" src="/images/{{post.provider.logo}}"
+	{% endif %}
+	<span class="date">{{ post.date | date: '%d' }} {{ post.date | date: '%b' }}, {{ post.date | date: '%Y'}}</span>
+</section>
+{% endif %}
+{% endfor %}
+
+
+</article>
+</div>

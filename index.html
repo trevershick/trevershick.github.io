@@ -2,12 +2,10 @@
 layout: home
 ---
 		{% for post in site.posts limit: 10 %}
-		{% if post.category == null %}
+		{% if post.category == null and post.noindex != true %}
 		<article>
             <header>
-                <h1>
-                	<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-                </h1>
+                <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
                 <p>{{ post.date | date_to_string }}</p>
             </header>
             <section>

@@ -1,0 +1,25 @@
+---
+layout: default
+title: Certifications
+---
+<div class="certs">
+<article>
+	<header>
+		<h1>Certifications</h1>
+	</header>
+
+
+{% for post in site.posts %}
+{% if post.category == 'certification' %}
+	<section>
+		<div class="ced-title">{{ post.title }}</div>
+		{% if post.logo %}
+		<img class="certauthority" src="/images/{{post.logo}}" />
+		{% endif %}
+		<span class="date">{{ post.date | date: '%d' }} {{ post.date | date: '%b' }}, {{ post.date | date: '%Y'}}</span>
+	</section>
+{% endif %}
+{% endfor %}
+
+</article>
+</div>

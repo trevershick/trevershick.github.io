@@ -23,12 +23,13 @@ layout: default
         <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="{{site.url}}/css/normalize.min.css">
+        <link rel="stylesheet" href="/css/normalize.min.css">
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-        <link rel="stylesheet" href="{{site.url}}/css/main.css">
-        <link rel="stylesheet" href="{{site.url}}/css/pygment_trac.css">
-        <link rel="stylesheet" href="{{site.url}}/css/overrides.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/pygment_trac.css">
+        <link rel="stylesheet" href="/css/overrides.css">
         <script src="{{site.url}}/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="/js/vendor/pdfobject.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -41,6 +42,8 @@ layout: default
                 <nav>
                     <ul>
                         <li><a href="/archive">Old Posts</a></li>
+                        <li><a href="/certs">Certifications</a></li>
+                        <li><a href="/ced">Learning</a></li>
                         <li><a href="https://github.com/trevershick">
                         My Profile</a></li>
                     </ul>
@@ -82,5 +85,6 @@ layout: default
           ga('send', 'pageview');
 
         </script>
+        {{ tailscript }}
     </body>
 </html>

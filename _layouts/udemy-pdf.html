@@ -1,0 +1,14 @@
+---
+layout: default
+
+---
+<div id="udemy-pdf">
+
+</div>
+<a href="/ced">&lt;&lt; back to continuing education</a>
+
+<script>
+window.onload = function() {
+    var success = new PDFObject({ url: "/pdfs/{{page.pdf}}.pdf" }).embed("udemy-pdf");
+};
+</script>

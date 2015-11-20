@@ -1,0 +1,14 @@
+---
+layout: default
+
+---
+<div id="cert-pdf">
+
+</div>
+<a href="/certs">&lt;&lt; back to certs</a>
+
+<script>
+window.onload = function() {
+    var success = new PDFObject({ url: "/pdfs/{{page.pdf}}.pdf" }).embed("udemy-pdf");
+};
+</script>
