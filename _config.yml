@@ -44,4 +44,4 @@ links:
     url: /series
 
 # exclude my node related stuff
-exclude: ['package.json', 'src', 'node_modules']
+exclude: [vendor, 'package.json', 'src', 'node_modules']
