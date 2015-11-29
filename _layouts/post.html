@@ -5,6 +5,9 @@
         {% include svg-icons.html %}
         {% include header-post.html %}
         <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <meta itemprop="headline" content="{{ page.title }}"/>
+            <meta itemprop="description" content="{{ page.description }}"/>
+            <meta itemprop="datePublished" content="{{ page.date | date: "%Y-%m-%d" }}" />
 
             <article role="article" id="scroll" class="post-content" itemprop="articleBody">
                 {{ content }}
