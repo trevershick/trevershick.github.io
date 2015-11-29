@@ -16,8 +16,8 @@ The intent is to roll this into the main product.  For distribution until then, 
 
 # Fixed
 
-* [Host file replacement not working](2ndalpha/gasmask#70) - Fixed the replacement of /etc/hosts when VI is used to change your hosts file.   Also, the JunOS Pulse VPN client makes a backup copy of the hosts file and replaces it after disconnecting.  If you had a host file selected, JunOS would replace it and Gas Mask didn't reestablish the selected hosts file. This issue has also been fixed.
+* [Host file replacement not working #70](https://github.com/2ndalpha/gasmask/pull/70) - Fixed the replacement of /etc/hosts when VI is used to change your hosts file.   Also, the JunOS Pulse VPN client makes a backup copy of the hosts file and replaces it after disconnecting.  If you had a host file selected, JunOS would replace it and Gas Mask didn't reestablish the selected hosts file. This issue has also been fixed.
 
 # Feature
 
-* [Active Host Name in Menu Bar](2ndalpha/gasmask#65) - add the active hostfile name into the status bar
+* [Active Host Name in Menu Bar #65](https://github.com/2ndalpha/gasmask/issues/65) - add the active hostfile name into the status bar
