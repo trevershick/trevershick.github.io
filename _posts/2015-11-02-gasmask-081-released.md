@@ -2,7 +2,7 @@
 title: Gas Mask v0.8.1-trevershick Released
 layout: post
 category : releases
-release-date: 2013-10-19
+release-date: 2015-11-02
 search: "yes"
 
 ---
