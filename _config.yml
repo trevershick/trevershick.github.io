@@ -17,7 +17,7 @@ stackoverflow_url: users/204786/trever-shick
 # Build settings
 markdown: kramdown
 highlighter: pygments
-permalink: /:categories/:title/
+permalink: /:categories/:year/:month/:day/:title.html
 
 
 # html minify
