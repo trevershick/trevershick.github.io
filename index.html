@@ -8,7 +8,7 @@ layout: default
     {% for post in posts %}
     {% if post.category == null and post.noindex != true %}
         <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-                <a class="datetime" href="{{ post.url | prepend: site.baseurl }}">
+                <a class="datetime" href="{{ post.url }}">
                     <meta itemprop="datePublished" content="{{post.date}}">
                     <time datetime="{{ post.date | date_to_xmlschema }}">
                         <span class="day">
@@ -20,10 +20,10 @@ layout: default
                     </time>
                 </a>
                 <div class="content">
-                    <a href="{{ post.url | prepend: site.baseurl }}"><h2 class="post-title" itemprop="name">{{ post.title }}</h2></a>
+                    <a href="{{ post.url }}"><h2 class="post-title" itemprop="name">{{ post.title }}</h2></a>
                     <p class="description">
                         {{ post.content | strip_html | truncatewords:40 }}
-                        <a href="{{ post.url | prepend: site.baseurl }}" class="link">Read more about {{post.title}}</a>
+                        <a href="{{ post.url }}" class="link">Read more about {{post.title}}</a>
                     </p>
 
                     <div class="tags">
