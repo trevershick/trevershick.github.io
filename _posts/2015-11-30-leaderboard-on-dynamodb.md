@@ -3,7 +3,7 @@ layout: post
 
 search: "yes"
 title: Building a Leaderboard on DynamoDb
-categories: [ dynamodb, aws ]
+categories: [ aws ]
 tags:
 - aws
 - dynamodb
