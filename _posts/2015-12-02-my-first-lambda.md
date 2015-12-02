@@ -2,7 +2,7 @@
 layout: post
 
 search: "yes"
-title: My first AWS Lambda
+title: My First AWS Lambda
 categories: [ aws ]
 tags:
 - aws
