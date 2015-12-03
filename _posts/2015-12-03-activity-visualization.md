@@ -100,7 +100,7 @@ d3.json("/activity.json", function(error, csv) {
 
 
 <style>
-svg {
+#big svg {
   shape-rendering: crispEdges;
 }
 .RdYlGn .q1-11{fill:rgb(253,174,97)}
