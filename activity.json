@@ -1,0 +1,16 @@
+---
+layout: null
+---
+{"data":
+[
+    {% for post in site.posts %}
+    {
+        "Tags"      : "{{ post.tags | array_to_sentence_string }}",
+        "Url"       : "{{ site.baseurl }}{{ post.url }}",
+        "Date"      : "{{post.date | date: "%Y-%m-%d"}}",
+        "Category"  : "{{post.categories}}",
+        "Title"     : "{{ post.title | escape }}"
+    },
+    {% endfor %}
+    {}
+]}
