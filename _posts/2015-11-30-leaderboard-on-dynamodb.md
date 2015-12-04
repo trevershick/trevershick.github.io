@@ -26,7 +26,14 @@ So, had I built this application on top of a SQL database or even MongoDB or som
 
 **It should still be easy!**
 
-Yes, I agree.  It should still be easy and it wasn't all that terrible but I had to think about the problem differently than if I had built on top of SQL.  Doing a leaderboard in SQL is simple.  ```UPDATE scores SET score = score + 1 WHERE template='ABC';  SELECT score,template FROM scores ORDER BY score DESC LIMIT 10;```.  Done.  I'm going to choose to ignore how easy this is.  I also will proceed ignoring the problems with SQL databases and how they're not cool any more ;).
+Yes, I agree.  It should still be easy and it wasn't all that terrible but I had to think about the problem differently than if I had built on top of SQL.  Doing a leaderboard in SQL is simple.  
+
+{% highlight sql %}
+UPDATE scores SET score = score + 1 WHERE template='ABC';  
+SELECT score,template FROM scores ORDER BY score DESC LIMIT 10;
+{% endhighlight %}
+
+Done.  I'm going to choose to ignore how easy this is.  I also will proceed ignoring the problems with SQL databases and how they're not cool any more ;).
 
 
 ## Two parts of the problem
@@ -59,9 +66,11 @@ With EMR, I can have a number of different structures (examples below).  If I'm 
 With Data Pipeline, all I had to do was define a Pipeline job with a Hive Activity, Data Input from Dynamo and Data Output to Dynamo.  The Hive Activity allows me to run aggregations via SQL like queries and then Pipeline will push the data back into DynamoDb.
 
 **Hive Activity 'Script'**
-```
+
+{% highlight sql %}
 INSERT OVERWRITE TABLE ${output1} SELECT type, slug, count(access_time) AS cnt FROM ${input1} WHERE type='dynamic' GROUP BY slug ORDER BY cnt DESC LIMIT 10;
-```
+{% endhighlight %}
+
 (this would be run twice, once for dynamic, once for static)
 
 **Hive Input/Output**
@@ -124,7 +133,7 @@ However, I can't do a sort on score here.  What I needed was to be able to query
 
 To do this, I created a Global Secondary Index on 'scores' (the table).  The hash key is the type and the sort key is the score.  This allows me to do the query without scans and sort by the index in descending fashion, then I can limit the results to 'n'.  Shown below is a JavaScript example of the query parameters.
 
-```
+{% highlight javascript %}
 var params = {
     TableName : "scores",
     IndexName: "type-score-index",
@@ -142,7 +151,8 @@ var params = {
      Limit: 3,
      Select: 'ALL_ATTRIBUTES'
 };
-```
+{% endhighlight %}
+
 
 
 > Note - I know this is a really crappy hash key.  I don't know how this is going to react with the GSI. I'll need to research the behavior some more.
@@ -157,7 +167,7 @@ If you stuck with me this far, you must be bored or desperate.  Thank you for yo
 
 # Data Pipeline Example
 
-```
+{% highlight javascript %}
 {
   "objects": [
     {
@@ -254,4 +264,4 @@ If you stuck with me this far, you must be bored or desperate.  Thank you for yo
   ],
   "parameters": []
 }
-```
+{% endhighlight %}
