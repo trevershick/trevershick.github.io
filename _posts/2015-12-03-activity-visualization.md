@@ -2,6 +2,11 @@
 layout: post
 title: Blogging Activity Visualization
 search: "yes"
+categories: [ d3 ]
+tags:
+- d3
+- visualization
+keywords: "d3, graph, visualization"
 ---
 
 I am NOT a consistent blogger, but lately I've been doing some work.  Tonight I thought it might be fun to visualize (with D3) my activity like you can see on [github](http://www.github.com/trevershick).  I found a great [calendar view](http://bl.ocks.org/mbostock/4063318) on the D3 sample sites and used it as a basis.  I tore it down a little bit and reassembled parts to brush back up on D3.  Here's the result.
