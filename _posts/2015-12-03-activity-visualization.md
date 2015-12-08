@@ -11,12 +11,16 @@ keywords: "d3, graph, visualization"
 
 I am NOT a consistent blogger, but lately I've been doing some work.  Tonight I thought it might be fun to visualize (with D3) my activity like you can see on [github](http://www.github.com/trevershick).  I found a great [calendar view](http://bl.ocks.org/mbostock/4063318) on the D3 sample sites and used it as a basis.  I tore it down a little bit and reassembled parts to brush back up on D3.  Here's the result.
 
-<p id="big" />
+<p>
+<p id="big" style="padding: 0;width:90%;overflow-x:hidden"/>
+</p>
 
 
 # Fiddle
 
-<iframe width="100%" height="300" src="//jsfiddle.net/trevershick/1k7pe4v2/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<p style="overflow-x:scroll">
+<iframe style="width:100%" height="300" src="//jsfiddle.net/trevershick/1k7pe4v2/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</p>
 
 
 
