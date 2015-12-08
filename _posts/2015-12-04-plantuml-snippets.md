@@ -13,18 +13,18 @@ keywords: "atom, snippets, plantuml"
 # What is PlantUml?
 
 According to the makers of PlantUml -
-```
-> PlantUML is a component that allows to quickly write :
-> * Sequence diagram,
-> * Usecase diagram,
-> * Class diagram,
-> * Activity diagram, (here is the new syntax),
-> * Component diagram,
-> * State diagram,
-> * Deployment diagram,
-> * Object diagram.
+
+> PlantUML is a component that allows to quickly write -
+>
+> * Sequence diagram
+> * Usecase diagram
+> * Class diagram
+> * Activity diagram
+> * Component diagram
+> * State diagram
+> * Deployment diagram
+> * Object diagram
 > * wireframe graphical interface
-```
 
 **I think** PlantUml is pure awesomeness.  Using it makes my life easier, and that's important.  I've been through quite a few UML tools and the main reason I love this tool is that I can author UML diagrams in plain text.  This is extremely powerful and yet simple.  The diagram below is generated from the following text.
 

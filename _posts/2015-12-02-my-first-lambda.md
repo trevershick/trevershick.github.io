@@ -118,7 +118,6 @@ lambda.handler(event, context);
 > Disclaimer - this is my first pass at this. I have not really refactored, nor even finished testing.
 
 {%highlight javascript%}
-```
 'use strict';
 var aws = require('aws-sdk'),
     dynamodb = new aws.DynamoDB(),
@@ -256,8 +255,7 @@ exports.handler = function(event, context) {
         onSlugsEnd(slugs, contextToCallBack(context));
     });
 };
-```
-{%endhighlight%}
+{% endhighlight %}
 
 
 # Testing My Lambda Function
