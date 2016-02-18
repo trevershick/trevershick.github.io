@@ -12,7 +12,7 @@ keywords: "leaderboard, dynamodb, scoreboard, aws, amazon"
 
 # Building a Leaderboard on DynamoDb
 
-I periodically work on a [pet project "seisei"](http://seisei.elasticbeanstalk.com) which affords me many opportunities to learn different technologies.  My latest was a migration from RiotJS on the front end to Om and ClojureScript.  The backend was already written in Clojure, and I have worked with React in production, so it was really a no brainer.  If you're interested, the [source code](http://github.com/trevershick/seisei) is available, but please keep in mind I am not a Clojure expert, just an avid fan.
+I periodically work on a pet project "seisei" which affords me many opportunities to learn different technologies.  My latest was a migration from RiotJS on the front end to Om and ClojureScript.  The backend was already written in Clojure, and I have worked with React in production, so it was really a no brainer.  If you're interested, the [source code](http://github.com/trevershick/seisei) is available, but please keep in mind I am not a Clojure expert, just an avid fan.
 
 The *seisei* application allows users to create JSON templates with generated data via macro expressions and then publish the template as either static files on S3 or dynamic endpoints within the application itself.  
 

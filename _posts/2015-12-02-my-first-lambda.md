@@ -13,7 +13,7 @@ keywords: "dynamodb, aws, amazon, lambda"
 
 # My First Lambda
 
-I [recently posted]({% post_url 2015-11-30-leaderboard-on-dynamodb %}) that I was building a leaderboard for [my app](http://seisei.elasticbeanstalk.com).  I built the basic page and the [DynamoDB](https://aws.amazon.com/dynamodb/) tables but I needed a way to update the tables.  The prior post discussed using EMR to update the scores on a periodic basis, but I want it updated more frequently.  BTW, if you have no idea what i'm talking about, I'd suggest reviewing the [previous post]({% post_url 2015-11-30-leaderboard-on-dynamodb %}).
+I [recently posted]({% post_url 2015-11-30-leaderboard-on-dynamodb %}) that I was building a leaderboard for my 'seisei' app.  I built the basic page and the [DynamoDB](https://aws.amazon.com/dynamodb/) tables but I needed a way to update the tables.  The prior post discussed using EMR to update the scores on a periodic basis, but I want it updated more frequently.  BTW, if you have no idea what i'm talking about, I'd suggest reviewing the [previous post]({% post_url 2015-11-30-leaderboard-on-dynamodb %}).
 
 So, given that my templates are read directly from S3, and I'd like updates to the scores as quickly as feasible, I decided to use [Lambda](https://aws.amazon.com/lambda/) from AWS.  **Lambda is a stateless compute service that executes your *Lambda Function* in response to some sort of stimuli be it an event from S3 or an HTTP call via the API gateway**.
 
