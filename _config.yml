@@ -16,7 +16,8 @@ linkedin_username: trevershick
 stackoverflow_url: users/204786/trever-shick
 # Build settings
 markdown: kramdown
-highlighter: pygments
+#highlighter: pygments
+highlighter: rouge
 permalink: /:categories/:year/:month/:day/:title.html
 
 
@@ -45,3 +46,4 @@ links:
 
 # exclude my node related stuff
 exclude: [vendor, 'package.json', 'src', 'node_modules']
+gems: [jekyll-gist]
