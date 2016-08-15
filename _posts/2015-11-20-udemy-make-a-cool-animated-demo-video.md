@@ -16,6 +16,6 @@ tags:
 
 noindex: true
 
-keywords: "udemy, ceh"
+keywords: "udemy, ced"
 pdf: UC-ZQZ9FS3M
 ---
