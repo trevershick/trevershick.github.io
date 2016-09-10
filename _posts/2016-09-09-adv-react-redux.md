@@ -16,5 +16,5 @@ tags:
 noindex: true
 
 keywords: "udemy, react, redux"
-pdf: UC-DSUSDH5C.pdf
+pdf: UC-DSUSDH5C
 ---
