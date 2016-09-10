@@ -406,3 +406,13 @@ nav a:hover {
 .certs section {
     margin-top:25px;
 }
+
+article.pdf {
+  width:1024px;
+  height:768px;
+}
+
+.pdfobject {
+  height: 100%;
+  width: 100%;
+}
