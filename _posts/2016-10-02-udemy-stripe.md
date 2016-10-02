@@ -1,7 +1,7 @@
 ---
 layout: udemy-pdf
 
-title: Build an Amazon clone: Nodejs + MongoDB + Stripe Pay
+title: Build an Amazon clone with Nodejs, MongoDB and Stripe Pay
 categories: [ udemy, certificate ]
 provider:
   name: "udemy"
