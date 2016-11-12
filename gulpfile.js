@@ -46,7 +46,7 @@ gulp.task('browser-sync', ['jekyll-build'], function() {
  * Stylus task
  */
 gulp.task('stylus', function(){
-		gulp.src('src/styl/main.styl')
+	return gulp.src('src/styl/main.styl')
 		.pipe(plumber())
 		.pipe(stylus({
 			use:[koutoSwiss(), prefixer(), jeet(),rupture()],
@@ -54,7 +54,7 @@ gulp.task('stylus', function(){
 		}))
 		.pipe(gulp.dest('_site/assets/css/'))
 		.pipe(browserSync.reload({stream:true}))
-		.pipe(gulp.dest('assets/css'))
+		.pipe(gulp.dest('assets/css'));
 });
 
 /**
@@ -65,7 +65,7 @@ gulp.task('js', function(){
 		.pipe(plumber())
 		.pipe(concat('main.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest('assets/js/'))
+		.pipe(gulp.dest('assets/js'));
 });
 
 /**
@@ -82,11 +82,12 @@ gulp.task('imagemin', function() {
  * Watch stylus files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
  */
-gulp.task('watch', function () {
+gulp.task('watch', function (done) {
 	gulp.watch('src/styl/**/*.styl', ['stylus']);
 	gulp.watch('src/js/**/*.js', ['js']);
 	gulp.watch('src/img/**/*.{jpg,png,gif}', ['imagemin']);
-	gulp.watch(['*.html', '_includes/*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
+	gulp.watch(['*.html', '_includes/*.html', '_layouts/*.html', '_posts/*', 'assets/js/main.js'], ['jekyll-rebuild']);
+	done();
 });
 
 /**

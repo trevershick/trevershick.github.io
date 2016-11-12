@@ -22,22 +22,28 @@
     dothis: $('.dosearch')
   };
 
-  bs.dothis.on('click', function() {
+  var showSearchForm = function() {
     $('.search-wrapper').css({ transform: "translateY(0)" });
     bs.searchform.toggleClass('active');
     bs.searchform.find('input').focus();
     bs.canvas.toggleClass('search-overlay');
     $('.search-field').simpleJekyllSearch();
-  });
-
-  bs.close.on('click', function() {
+  };
+  var hideSearchForm = function() {
     $('.search-wrapper').removeAttr( 'style' );
     bs.searchform.toggleClass('active');
     bs.canvas.removeClass('search-overlay');
-  });
+  };
 
+  bs.dothis.on('click', showSearchForm);
+  bs.close.on('click', hideSearchForm);
+
+  $(window).on('keydown', function(x) {
+      console.log(x);
+  });
   // Scroll
   smoothScroll.init({
     updateURL: false
-  })
+  });
+
 })( Zepto, window );

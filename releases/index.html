@@ -1,0 +1,26 @@
+---
+layout: minimal
+title: "Releases"
+permalink: /releases/index.html
+image: '/assets/img/series.png'
+description: "What's coming out..."
+---
+
+<main id="scroll" class="certs" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+	{% for post in site.posts %}
+	{% if post.category == 'releases' %}
+
+
+    <ul class="post-list">
+            <li>
+				<span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time></span>
+				<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+    </ul>
+
+
+
+
+
+    {% endif %}
+    {% endfor %}
+</main>

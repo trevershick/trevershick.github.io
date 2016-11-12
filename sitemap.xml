@@ -10,6 +10,9 @@ layout: null
 		<loc>{{site.baseurl}}/certs</loc>
 	</url>
 	<url>
+		<loc>{{site.baseurl}}/releases</loc>
+	</url>
+	<url>
 		<loc>{{site.baseurl}}/about</loc>
 	</url>
 	<url>

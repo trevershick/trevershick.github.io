@@ -2,7 +2,7 @@
 	<h1>Latest</h1>
 	<ul>
 		{% for post in site.posts limit: 10 %}
-		{% if post.category == null and post.noindex != true %}
+		{% if post.noindex != true %}
 		<li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
 		{% endif %}
 		{% endfor %}

@@ -1,37 +1,55 @@
-html,
-body
-	height 100%
-
 
 $bg
 	background main
-	height 100%
 	.content
-		width 95%
+		width 100%
 		align(both)
 		text-align center
 
 // Header home
 .header-site
 	@extends $bg
-	//background-image: url("/assets/img/bg.jpg")
-	background-size: 100%
-	background-repeat: no-repeat
+	position relative
+	top 0px
+	height 150px
+	+above(cut)
+		height 320px
+	background-size 100%
+	background-repeat no-repeat
 
+	.icons-home
+		position absolute
+		width 100%
+		top 115px
+		+above(cut)
+			top 245px
+		a
+			padding 5px
+			.icon
+				size(20,20)
+			+above(cut)
+				padding 8px
+				.icon
+					size(32,32)
 
 	h1,h2
-		color: sec
+		font-weight normal
+		color sec
 		text-align center
+
 	.site-title
-		font-size rem(60px)
+		font-size 24pt
+		+above(cut)
+			font-size rem(48px)
 		line-height 1
-		margin-top -80px
 		display block
 		+above(cut)
-			margin-bottom 0
 			font-size rem(100px)
+
 	.site-description
-		font-size rem(20px)
+		font-size rem(14)
+		+above(cut)
+			font-size rem(16px)
 		display block
 		margin rem(30px) 0
 		+above(cut)
@@ -40,16 +58,31 @@ $bg
 // Header Post
 .header-post
 	@extends $bg
-	//background-image: url("/assets/img/bg.jpg")
-	background-size: 100%
-	background-repeat: no-repeat
+	background-size 100%
+	background-repeat no-repeat
+	height rem(100px)
+	top 0
+
+	.icons-home
+		position relative
+		margin auto
+		position absolute
+		width 100%
+		top rem(80px)
+		a
+			padding:5px
+			.icon
+				size(20,20)
 
 	.content
-		+above(cut)
-			center(1000px)
+		position:relative
+		h1
+			font-size rem(12px)
+			+above(cut)
+				font-size rem(24px)
 	.subheader
 		display table
-		padding 20px
+		padding rem(20px)
 		a
 			border 2px solid sec
 			border-radius 20px
@@ -63,12 +96,12 @@ $bg
 	h1
 		text-transform uppercase
 		font-size rem(30px)
-		margin 0 0 30px
+		margin 0
 		+above(cut)
 			font-size rem(60px)
 	.subtitle
-		mainFont(300)
-		font-size rem(20px)
+		font-size 10pt
+		margin 0
 	h1,.subtitle, .date
 		color sec
 		text-align center

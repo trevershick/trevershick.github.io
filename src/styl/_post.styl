@@ -1,4 +1,11 @@
 .post-content
+    font-size 10pt
+    +above(cut)
+        font-size 14pt
+
+    code
+        +below(cut)
+            font-size 8pt
     padding rem(40px) 0
     img
         max-width 100%
@@ -8,19 +15,14 @@
         center(rem(800px))
         padding 0 rem(20px)
         margin 0 auto rem(30px)
-        mainFont(300)
-        font-size rem(18px)
         line-height 2
         letter-spacing 0.01rem
-        +above(cut)
-            font-size rem(20px)
     p,li
         color texts
         code
             color colorcode
-            white-space pre
+            white-space wrap
     a
-        mainFont(300)
         color main
         text-decoration none
         border-bottom 2px solid #0562dc
@@ -37,41 +39,31 @@
     	margin auto !important
     h1,h2,h3,h4,h5
         mainFont(800)
-    h1
-        font-size rem(30px)
-        line-height 1.4
-        +above(cut)
-            font-size rem(45px)
-    h2
-        font-size rem(22px)
-        line-height 1.4
-        +above(cut)
-            font-size rem(35px)
-    h3
-        font-size rem(18px)
-        line-height 1.4
-        +above(cut)
-            font-size rem(25px)
     ul,ol
         padding-left rem(40px)
     ul.post-list
         padding 0
         +below(cut)
             padding 0 rem(20px)
+    figure
+        +below(cut)
+            margin 0
+
     blockquote
         center(rem(730px))
         border-left rem(5px) solid main
-        padding 0 rem(30px)
-        margin rem(50px) auto
-        +below(cut)
-            width 70%
+        padding 0 rem(20px)
+        font-size 10pt
+        +above(cut)
+            font-size 12pt
+        width 100%
+        margin rem(10px)
+        +above(cut)
+            margin rem(50px) auto
         p
             color rgba(0,0,0,0.6)
             margin 0
-            +below(cut)
-                font-size rem(18px)
-                line-height 1.5
-                padding 0
+            padding 0
     hr
     	center(rem(760px))
     	border 1px solid lightGray
@@ -100,12 +92,10 @@ table
         padding rem(5px)
 
 .tag-title
-    mainFont(300)
-    font-size rem(36px)
+    font-weight bold
     margin-top rem(60px)
     center(rem(800px))
     +below(cut)
-        font-size rem(28px)
         margin-top rem(20px)
         padding 0 rem(20px)
 

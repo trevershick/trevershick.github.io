@@ -6,7 +6,7 @@ layout: default
 
 <main id="scroll" class="home" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
     {% for post in posts %}
-    {% if post.category == null and post.noindex != true %}
+    {% if post.noindex != true %}
         <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
                 <a class="datetime" href="{{ post.url }}">
                     <meta itemprop="datePublished" content="{{post.date}}">

@@ -1,7 +1,6 @@
 ---
 title: InvalidClassException Upon Storm Topology Submission
 layout: post
-category: tips
 
 search: "yes"
 tags:
