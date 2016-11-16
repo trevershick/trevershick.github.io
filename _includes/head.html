@@ -26,7 +26,7 @@
     {% if page.image %}
     <meta property="og:image" content="{{ site.url }}{{page.image }}">
     {% else %}
-    <meta property="og:image" content="{{ "/assets/img/trevershick.jpeg" | prepend: site.baseurl | prepend: site.url }}">
+    <meta property="og:image" content="{{ "/assets/img/trevershick.jpeg" | prepend: site.url }}">
     {% endif %}
     <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
     <meta property="og:site_name" content="{{ site.title }}">
@@ -34,7 +34,7 @@
     <!-- Social: Google+ / Schema.org  -->
     <meta itemprop="name" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"/>
     <meta itemprop="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-    <meta itemprop="image" content="{{ "/assets/img/trevershick.jpeg" | prepend: site.baseurl | prepend: site.url }}"/>
+    <meta itemprop="image" content="{{ "/assets/img/trevershick.jpeg" | prepend: site.url }}"/>
 
 
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/img/icons/apple-touch-icon-57x57.png" />
