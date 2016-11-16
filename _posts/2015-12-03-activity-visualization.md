@@ -93,7 +93,7 @@ Next, I load the script files (D3 and d3-activity-vis) in the page.  Instantiate
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script src="/js/d3-activity-vis.js"></script>
 <script>
-var activityView = new ActivityViz("#big", 2012, 2016);
+var activityView = new ActivityViz("#big", 2012, 2017);
 d3.json("/activity.json", function(error, csv) {
   if (error) throw error;
   activityView.refresh(csv.data);
@@ -121,7 +121,7 @@ d3.json("/activity.json", function(error, csv) {
 <script src="/js/d3-activity-vis.js"></script>
 
 <script>
-var activityView = new ActivityViz("#big", 2012, 2016);
+var activityView = new ActivityViz("#big", 2012, 2017);
 d3.json("/activity.json", function(error, csv) {
   if (error) throw error;
   activityView.refresh(csv.data);
