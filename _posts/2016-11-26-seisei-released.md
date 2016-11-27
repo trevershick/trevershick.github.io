@@ -1,5 +1,5 @@
 ---
-title: Seisei 0.1.1 Released
+title: Seisei 0.1.2 Released
 layout: post
 category : releases
 release-date: 2016-11-26
@@ -13,10 +13,12 @@ keywords: "seisei, json, release"
 ---
 
 
-[Seisei v 0.1.1 Released](http://seisei.shick.io)
+[Seisei v 0.1.2 Released](http://seisei.shick.io)
 
 # New Features
-v0.1.1 - currently installed at [seisei.shick.io](seisei.shick.io) - the 0.1.1 release introduces the use of [Java Faker](https://github.com/DiUS/java-faker) to expand the capabilities of Seisei.  The examples have all been updated as well and the 'samples' UI is now collapsed by default.
+v0.1.2 - currently installed at [seisei.shick.io](seisei.shick.io) - AutoComplete for all directives has been added.
+
+v0.1.1 - the 0.1.1 release introduces the use of [Java Faker](https://github.com/DiUS/java-faker) to expand the capabilities of Seisei.  The examples have all been updated as well and the 'samples' UI is now collapsed by default.
 
 # Description
 Seisei is a simple tool that allows you to specify a JSON template and statically or dynamically publish an endpoint that has CORS disabled which you can then use any way you see fit (within reason).  It's currently deployed at http://seisei.shick.io and is free for general use.
@@ -32,7 +34,12 @@ I use this project as a means for learning.  It's written in Clojure on the back
 ... so it's more than just a todo list application that affords me many challenges when learning something new.
 
 # Screen Shot
+## Basic
 ![Screen Shot](https://raw.githubusercontent.com/trevershick/seisei/master/ss.png)
+
+## AutoComplete
+![AutoComplete Screen Shot](https://trevershick.github.io/images/autocomplete.png)
+
 
 # Seisei Front End Architecture with [Om](https://github.com/omcljs/om)
 
