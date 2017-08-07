@@ -11,3 +11,5 @@ tags:
 3. Execute ```rolemod -K type=normal root```
 4. Restart SSH with ```svcadm restart svc:/network/ssh:default```
 5. Done.
+
+(credit http://veereshkumarn.blogspot.com/2012/09/how-to-enable-ssh-root-login-in-solaris.html)
